@@ -13,6 +13,6 @@ Members:
 
     Dates: | Day  |  Virtual/Physical  |  Time
            | 3/21 |  Physical          |  12:30-1:45
-    (Next) | 4/2  |  Physical?        |  ???   
+    (Next) | 4/2  |  Physical?         |  ???   
 
 ---
