@@ -1,9 +1,9 @@
 # CS355-Group
 Members: 
-   Ethan Rinke
-   Lydia Sparks
-   Gage Mathis
-   Kelson Moore
+   - Ethan Rinke
+   - Lydia Sparks
+   - Gage Mathis
+   - Kelson Moore
 
 ---
 
