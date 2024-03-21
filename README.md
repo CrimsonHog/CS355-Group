@@ -19,7 +19,7 @@ Members:
 
 **Task List**
 
-- []  
+- []  Create segment in presentation explaining the use of github and how it helped with planning (Ethan)
 - [] 
 - [] 
 - [] 
