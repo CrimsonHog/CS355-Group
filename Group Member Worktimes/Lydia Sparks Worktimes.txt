@@ -1,7 +1,15 @@
 Lydia Sparks's Worktimes
 
-4/3/24; 5:40-6:10
+4/3/24
+---------
+5:40-6:10 PM
 With Group: Reviewed and added to Kelson's work on the Design Document.
 
-4/4/24; 8:20-9:05
+4/4/24
+---------
+8:20-9:05 AM
 Individual: Studied the Binary Heap data structure and its two implementation types: Min Heap and Max Heap.
+************************************************************************************************************
+10:50-11:59 PM
+Individual: Worked on Design Document; added example graph and added to the description, functionality requirements, and test plan.
+
