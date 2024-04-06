@@ -13,3 +13,8 @@ Individual: Studied the Binary Heap data structure and its two implementation ty
 10:50-11:59 PM
 Individual: Worked on Design Document; added example graph and added to the description, functionality requirements, and test plan.
 
+4/5/24
+---------
+7:25-8:02 PM
+Individual: Made BinaryHeap.h to give the group a rough outline of the methods we need to implement.
+
