@@ -2,3 +2,4 @@
 ---------
 5:40-6:10 PM
 With Group: Reviewed and added to Kelson's work on the Design Document.
+Solo: Started setup for Driver.cpp
