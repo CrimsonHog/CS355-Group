@@ -22,8 +22,8 @@ private:
 	/*
 		* ATTRIBUTES
 	*/
-	string city;
-	int weight;
+	string city[]; // each city corresponding to txt file
+	int weight[]; // each weight corresponding to txt file
 	
 	/*
 		* METHODS
