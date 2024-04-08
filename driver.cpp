@@ -43,14 +43,8 @@ int main(){
 // Author: Ethan
 // ----------------------------------------------------------
 void fileInput(int graphWeight, string* graphPathway, int graphData){
-    
-    
-    /*
-        Section implemented by: Ethan
-    */
     // Dummy Variables for the file 
     // Change once we are able to call the graphNode Header file
-    
     ifstream inputFile;
     inputFile.open("graphInfo.txt");
 
@@ -65,6 +59,5 @@ void fileInput(int graphWeight, string* graphPathway, int graphData){
     }
 
     // Come back and fix this function so that it works with the graphNode Array
-    // Currently does not work as is
-
+    // Currently does not work as is (LATER ISSUE: Wait for header files to be completed)
 };
