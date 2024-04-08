@@ -12,6 +12,8 @@ Solo: Started setup for Driver.cpp
 With Group: Discussed the setup of header/cpp files for graph
 Solo: Found information and shared in saved groupchat to help others.
       (We're trying to learn how to create graphs in c++)
+      Also created dummy variables so we could have Input file set up for later
+      
 
 4/10/24
 ---------
