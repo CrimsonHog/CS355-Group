@@ -1,10 +1,18 @@
 4/3/24
 ---------
+(Virtual)
 5:40-6:10 PM
 With Group: Reviewed and added to Kelson's work on the Design Document.
 Solo: Started setup for Driver.cpp
 
 4/8/24
 ---------
+(Virtual)
 5:00 pm - 7:00 pm
 With Group: Discussed the setup of header/cpp files for graph
+Solo: Found information and shared in saved groupchat to help others.
+      (We're trying to learn how to create graphs in c++)
+
+4/10/24
+---------
+(Planned Physical)
