@@ -16,12 +16,15 @@ int main(){
             // New variables do not all need to be at the top, call them where necessary
             // No need to clutter the reading of the drive
 
+    /*
+        Section implemented by: Ethan
+    */
     // Dummy Variables for the file 
     // Change once we are able to call the graphNode Header file
     int weight;
     string* pathway;
     int data;
-    
+
     ifstream inputFile;
     inputFile.open("graphInfo.txt");
     //File input
