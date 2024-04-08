@@ -15,7 +15,7 @@ Members:
     ------ | ---- | ------------------ |  -----------------
            | 3/21 |  Physical          |  12:30-1:45
            | 4/3  |  Physical          |  5:40 pm - 6:10 pm  
-           | 4/8  |  Physical          |  5:30 pm - 6:50 pm
+           | 4/8  |  Physical          |  5:30 pm - 7:00 pm
     (Next) | 4/10 |  Physical          |  5:30 pm - 7:00 pm
            | 4/15 |  Physical          |  5:30 pm - 7:00 pm
            | 4/17 |  Physical          |  5:30 pm - 7:00 pm
