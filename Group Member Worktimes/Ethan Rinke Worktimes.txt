@@ -3,3 +3,8 @@
 5:40-6:10 PM
 With Group: Reviewed and added to Kelson's work on the Design Document.
 Solo: Started setup for Driver.cpp
+
+4/8/24
+---------
+5:00 pm - 7:00 pm
+With Group: Discussed the setup of header/cpp files for graph
