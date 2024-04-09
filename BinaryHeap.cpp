@@ -31,6 +31,7 @@ Node::Node(string c[], int w[])
 	
 	cityAndWeights.close();
 };
+
 /*
 	Function Name: PercolateUp
 	Function Inputs: Node factor[factorSize], int hole
@@ -58,6 +59,7 @@ void BinaryHeap::PercolateUp(Node factor[factorSize], int hole){
 	Function Outputs: N/A
 	Function Description: 
 	Author: Ethan
+	Testers:
 */
 void BinaryHeap::PercolateDown(Node factor[factorSize], int hole){
 	int child;
@@ -77,4 +79,20 @@ void BinaryHeap::PercolateDown(Node factor[factorSize], int hole){
 		hole = child;
 	}
 	factor[hole] = temp;
+};
+
+/*
+	Function Name: Insert
+	Function Inputs: string c, int w, Node factor[]
+	Function Outputs: N/A
+	Function Description: Insert into node array and percolate up to make sure any new node is in the correct position
+	Author: Ethan
+	Testers:
+*/
+void Insert(string c, int w, Node factor[]){
+	Node temp;
+	temp.city = c;
+	temp.weight = w;
+	
+	PercolateUp(factor, factorSize);
 };
