@@ -15,6 +15,8 @@ Solo: Found information and shared in saved groupchat to help others.
       Also created dummy variables so we could have Input file set up for later
       
 
-4/10/24
+4/9/24
 ---------
-(Planned Physical)
+12:30 - 1:45
+Solo: Created Percolate up and down functions (Need testing later)
+With Group: Discussed Design Document with professor

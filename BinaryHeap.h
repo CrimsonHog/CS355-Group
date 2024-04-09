@@ -12,6 +12,11 @@
 #include <iostream>
 using namespace std;
 
+
+//GLOBALS
+const int CITY_COUNT = 20; // number of cities in the txt file
+const int factorSize = 3; // size of the array of Node objects
+
 /*
 	* NODE CLASS
 */
@@ -49,11 +54,11 @@ public:
 	/*
 		* METHODS
 	*/
-	bool Insert(string c, int w, Node factor[]); // for inserting into the array
-	bool Remove(Node factor[]); // for removing from the array; only removing the root, so the array is the only parameter
+	void Insert(string c, int w, Node factor[]); // for inserting into the array
+	void Remove(Node factor[]); // for removing from the array; only removing the root, so the array is the only parameter
 	bool FindShortestPath(Node factor[]); // finds the shortest path based upon weights; array has weights in Node objects
-	bool PercolateUp(Node factor[]); // used to help with maintaining binary heap ordering property in Insert() and Remove()
-	bool PercolateDown(Node factor[]); // used with BuildHeap()
+	void PercolateUp(Node factor[factorSize], int hole); // used to help with maintaining binary heap ordering property in Insert() and Remove()
+	void PercolateDown(Node factor[factorSize], int hole); // used with BuildHeap()
 	bool BuildHeap(Node factor[]); // sorts the elements of the array into a binary heap
 	int ViewMin(Node factor[]); // allows for the root to be viewed
 	void PrintBinaryHeap(Node factor[])const; // used for testing that the binary heap was created successfully

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ifstream>
+#include <fstream>
 #include "BinaryHeap.h"
 using namespace std;
 
@@ -30,8 +30,51 @@ Node::Node(string c[], int w[])
 	}
 	
 	cityAndWeights.close();
-}
+};
+/*
+	Function Name: PercolateUp
+	Function Inputs: Node factor[factorSize], int hole
+	Function Outputs: N/A
+	Function Description: 
+	Author: Ethan
+	Testers:
+*/
+void BinaryHeap::PercolateUp(Node factor[factorSize], int hole){
+	hole = factorSize - 1;
+	int parent = hole / 2;
+	Node temp = factor[hole];
+	
+	while (hole > 1 && temp.weight < factor[parent].weight){
+		factor[hole] = factor[parent];
+		hole = parent;
+		parent = hole / 2;
+	}
+	factor[hole] = temp;
+};
 
-
-
-
+/*
+	Function Name: PercolateDown
+	Function Inputs: Node factor[factorSize], int hole
+	Function Outputs: N/A
+	Function Description: 
+	Author: Ethan
+*/
+void BinaryHeap::PercolateDown(Node factor[factorSize], int hole){
+	int child;
+	Node temp = factor[hole];
+	
+	while (hole * 2 <= factorSize){
+		child = hole * 2;
+		if (child != factorSize && factor[child + 1].weight < factor[child].weight){
+			child++;
+		}
+		if (factor[child].weight < temp.weight){
+			factor[hole] = factor[child];
+		}
+		else{
+			break;
+		}
+		hole = child;
+	}
+	factor[hole] = temp;
+};
