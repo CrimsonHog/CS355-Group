@@ -96,3 +96,18 @@ void Insert(string c, int w, Node factor[]){
 	
 	PercolateUp(factor, factorSize);
 };
+
+/*
+	Funtion Name: Remove
+	Function Inputs: Node factor[]
+	Function Outputs: N/A
+	Function Description: Remove the root node from the array and percolate down to make sure the array is in the correct order
+	Author: Ethan
+	Testers: 
+*/
+void Remove(Node factor[]){
+	Node temp = factor[1];
+	factor[1] = factor[factorSize - 1];
+	factorSize--;
+	PercolateDown(factor, factorSize);
+};
