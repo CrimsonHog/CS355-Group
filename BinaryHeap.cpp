@@ -106,8 +106,9 @@ void Insert(string c, int w, Node factor[]){
 	Testers: 
 */
 void Remove(Node factor[]){
+	int size = factorSize;
 	Node temp = factor[1];
-	factor[1] = factor[factorSize - 1];
-	factorSize--;
-	PercolateDown(factor, factorSize);
+	factor[1] = factor[size - 1];
+	size--;
+	PercolateDown(factor, size);
 };
