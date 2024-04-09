@@ -112,3 +112,17 @@ void Remove(Node factor[], int val){
 	
 	PercolateDown(factor, factorSize);
 };
+
+/*
+  Funtion Name: PrintBinaryHeap
+  Function Inputs: Node factor
+  Function Outputs: cout City and corresponding Weight
+  Function Description: used for testing that the binary heap was created successfully. prints city alongside corresponding weight. 
+  Author: Gage Mathis
+  Testers: 
+*/
+void BinaryHeap::PrintBinaryHeap(Node factor)const {
+  for (int i = 0; i < CITY_COUNT; i++) {
+    cout << "City: " << factor.city[i] << "has Weight: " << factor.weight[i] << endl ;
+  }
+}
