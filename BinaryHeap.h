@@ -55,7 +55,7 @@ public:
 		* METHODS
 	*/
 	void Insert(string c, int w, Node factor[]); // for inserting into the array
-	void Remove(Node factor[]); // for removing from the array; only removing the root, so the array is the only parameter
+	void Remove(Node factor[], int val); // for removing from the array; only removing the root, so the array is the only parameter
 	bool FindShortestPath(Node factor[]); // finds the shortest path based upon weights; array has weights in Node objects
 	void PercolateUp(Node factor[factorSize], int hole); // used to help with maintaining binary heap ordering property in Insert() and Remove()
 	void PercolateDown(Node factor[factorSize], int hole); // used with BuildHeap()
