@@ -42,9 +42,10 @@ int main(){
 //              graph node array
 // Author: Ethan
 // ----------------------------------------------------------
-void fileInput(int graphWeight, string* graphPathway, int graphData){
+void fileInput(int graphWeight, string* graphPathway, int graphData)
+{
     // Dummy Variables for the file 
-    // Change once we are able to call the graphNode Header file
+    // Change once we are able to call the GraphNode Header file
     ifstream inputFile;
     inputFile.open("graphInfo.txt");
 
@@ -58,6 +59,6 @@ void fileInput(int graphWeight, string* graphPathway, int graphData){
         inputFile.close();
     }
 
-    // Come back and fix this function so that it works with the graphNode Array
+    // Come back and fix this function so that it works with the GraphNode Array
     // Currently does not work as is (LATER ISSUE: Wait for header files to be completed)
 };
