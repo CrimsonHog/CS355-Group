@@ -23,8 +23,3 @@ Individual: Made BinaryHeap.h to give the group a rough outline of the methods w
 5:30-7:00 PM
 With Group: Started implementing Binary Heap node constructors.
 
-4/9/24
----------
-12:30-1:30 PM
-With Group: Worked on adjacency matrix representation.
-
