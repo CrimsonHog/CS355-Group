@@ -4,3 +4,12 @@ Kelson Moore: Work Times
 - Got a headstart on the Design Document.
 04/03/24: 5:30 - 6:10 Group In-Person (Ethan Virtual)
 - Reviewed and adjusted Desgin Document with group.
+04/08/24: 5:15 - 6:45 Group In-Person (Ethan Virtual)
+- Started working on the code for the project
+- Divided up work between members to ensure two people wern't working on the same thing
+04/09/24: 12:30 - 1:45 Group In-Person
+- Reviewed Design Document with Jenkins
+- Continued to make progress on coding
+04/09/24: 1:30 - 8:30 Independent (plenty of breaks taken during this time)
+- Worked on the implementation of Dijkstra's algorithm into the Binary Heap
+- Revised the Design Document based upon Jenkins' feedback
