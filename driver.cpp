@@ -8,10 +8,16 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include "GraphNode.h"
+#include "BinaryHeap.h"
+
 using namespace std;
+//GLOBAL CONST
+const int SIZE = 7; //This is the amount of nodes in the graph
 
-void fileInput(int, string*, int){};
-
+//void fileInput(int, string*, int);
+void fileInput(int adjacencyList[SIZE][SIZE]);
+bool FindShortestPath(); // finds the shortest path based upon weights; array has weights in GraphNode objects
 
 int main(){
     // Front end, doesnt have to be anything to complicated
@@ -24,15 +30,19 @@ int main(){
 
     // Call Graph calls - creating and taking 
     //Dummy Graph variables
-    int graphWeight; 
+    
+/*   int edgeWeight; 
     string* graphPathway; 
     int graphData;
-    fileInput(graphWeight, graphPathway, graphData);
-    
+    fileInput(edgeWeight, graphPathway, graphData);
+*/
+	int adjacencyList [SIZE][SIZE];
+	fileInput(adjacencyList);
+    //Move FindShortestPath here since it uses the Binary Heap, not a part of the Binary heap
 
     return 0;
 }
-
+/*
 // ----------------------------------------------------------
 // Function Name: fileInput
 // Function Type: void 
@@ -42,7 +52,7 @@ int main(){
 //              graph node array
 // Author: Ethan
 // ----------------------------------------------------------
-void fileInput(int graphWeight, string* graphPathway, int graphData)
+void fileInput(int edgeWeight, string* graphPathway, int graphData)
 {
     // Dummy Variables for the file 
     // Change once we are able to call the GraphNode Header file
@@ -52,7 +62,7 @@ void fileInput(int graphWeight, string* graphPathway, int graphData)
     //File input
     if (inputFile.is_open()){
         while(!inputFile.eof()){
-            inputFile >> graphWeight;
+            inputFile >> edgeWeight;
             inputFile >> *graphPathway;
             inputFile >> graphData;
         }
@@ -62,3 +72,66 @@ void fileInput(int graphWeight, string* graphPathway, int graphData)
     // Come back and fix this function so that it works with the GraphNode Array
     // Currently does not work as is (LATER ISSUE: Wait for header files to be completed)
 };
+*/
+void fileInput(int adjacencyList[][SIZE])
+{
+	ifstream inFile;
+    inFile.open("graphInfo.txt");
+
+	int edgeWeight;
+	//File input
+    if (inFile.is_open())
+	{
+        while(!inFile.eof()) //goes until the end of the file
+		{	
+			for(int y = 0; y < SIZE; y++)
+			{
+	        	for(int x = 0; x < SIZE; x++) //goes across the row of int, size must correspond to the file
+	        	{
+	            	inFile >> edgeWeight;
+	        		adjacencyList[x][y] = edgeWeight;
+				}
+			}
+        }
+        inFile.close();
+    }
+    /* //Check print for the matrix
+    for(int b = 0; b < SIZE; b++)
+    {
+    	for(int a = 0; a < SIZE; a++)
+    	{
+    		cout << adjacencyList[a][b] << " ";
+		}
+		cout << endl;
+	}
+	*/
+}
+
+/*
+	Funtion Name: FindShortestPath()
+	Function Inputs: BinaryHeap : The root of the Binary Heap;
+	Function Outputs: N/A
+	Function Description: Find the shortest path from the orgin to the destination using Dijkstra's shortest path algorithm
+	Author: Kelson Moore
+	Testers: 
+*/
+/*
+bool FindShortestPath(/*GraphNode root)
+{
+	//set the current to orgin
+	GraphNode current = orgin;
+	
+	//do until you get to destination in a way that has destination < min weight of heap
+	//Check and see what the current node can see, add those to the binary heap
+	//check adjacency matrix to see if the adjacent node's weight is more than current weight + edge
+		//if checked weight is less, call ChangeWeight(weight, edge); edge will be stored in the adjaency matrix
+			//if changed store current node as the predecessor to the changed node
+		//if not then continue on without making weight changes
+	//set current to what the minimum node is (top of the heap)
+	
+	while(end.getWeight > root.getWeight) //where end is the destination & root is the first value in the implicit heap (will implement later)
+	{
+		root
+	}
+	
+}*/	

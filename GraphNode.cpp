@@ -27,10 +27,12 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 	{
 		weight = INT_MAX; //sets the weight of the node to the maximum
 		city = "Default City"; //default name
+		predecessor = nullptr; //sets the predecessor node to null, all will be null until decided otherwise during the finding shortest path algorithm
 	}
+	
 	/* 
-	GraphNode(int inName) - parametered Constructor (will never need a parametered for weight since weight will always be set to inifinity upon creation)
-	Incoming Data - int inName: if there is an incoming name the node will be constructed with that data
+	GraphNode(string inCity) - parametered Constructor
+	Incoming Data - int inCity: if there is an incoming name the node will be constructed with that data
 	Outgoing data - N/A
 	Authors - Kelson Moore & Gage Mathis
 	Tester(s) - 
@@ -40,6 +42,22 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 		weight = INT_MAX; //sets the weight of the node to the maximum
 		city = inCity; //sets name to the incoming name parameter
 	}
+	
+	/* 
+	GraphNode(int inWeight, int inCity) - parametered Constructor: creates the node with the incoming weight and city attributes
+	Incoming Data - 
+		int inWeight: incoming weight of the node, should only happen for orgin node since its the only node that starts off at anything but inifinity
+		string inCity: incoming name of the city
+	Outgoing data - N/A
+	Authors - Kelson Moore
+	Tester(s) - 
+	*/ 
+	GraphNode::GraphNode(int inWeight, string inCity)
+	{
+		weight = inWeight; //sets the weight of the node to the maximum
+		city = inCity; //sets name to the incoming name parameter
+	}
+	
 /*
 GraphNode Setters
 Purpose: Changes the attributes stored in the GraphNode class
@@ -55,6 +73,7 @@ Purpose: Changes the attributes stored in the GraphNode class
 	{
 		this->weight = ++inWeight; //for unweighted the node weight only needs to be one more than the node before it.
 	}
+	
 	/* 
 	ChangeWeight() - sets the weight attribute for the weighted graph
 	Incoming Data - 
@@ -68,6 +87,7 @@ Purpose: Changes the attributes stored in the GraphNode class
 	{
 		this->weight = (inWeight + inEdge);
 	}
+	
 	/* 
 	ChangeCity(string inCity) - changes the name attribute of the node
 	Incoming Data - string inCity: the incoming name of a city
@@ -79,6 +99,13 @@ Purpose: Changes the attributes stored in the GraphNode class
 	{
 		this->city = inCity;
 	}
+	
+	void GraphNode::ChangePredecessor(GraphNode inPred)
+	{
+		predecessor = inPred;
+	}
+	
+	
 /*
 GraphNode Getters
 Purpose: Retrieves the attributes stored in the GraphGraphGraphNode class
@@ -94,6 +121,7 @@ Purpose: Retrieves the attributes stored in the GraphGraphGraphNode class
 	{
 		return weight;
 	}
+	
 	/* 
 	string GetName() - returns the name attribute
 	Incoming Data - N/A
@@ -105,4 +133,6 @@ Purpose: Retrieves the attributes stored in the GraphGraphGraphNode class
 	{
 		return city;
 	}
+	
+	
 #endif

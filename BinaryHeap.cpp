@@ -61,7 +61,7 @@ void BinaryHeap::PercolateDown(GraphNode factor[factorSize], int hole){
 	Author: Ethan
 	Testers:
 */
-void Insert(string c, int w, GraphNode factor[]){
+void BinaryHeap::Insert(string c, int w, GraphNode factor[]){
 	GraphNode temp;
 //	temp.city = c;
 	temp.ChangeCity(c);
@@ -79,7 +79,7 @@ void Insert(string c, int w, GraphNode factor[]){
 	Author: Ethan
 	Testers: 
 */
-void Remove(GraphNode factor[], int val){
+void BinaryHeap::Remove(GraphNode factor[], int val){
 	GraphNode temp = factor[1];
 	factor[1] = factor[factorSize];
 	factor[factorSize] = temp;

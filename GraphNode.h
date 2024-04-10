@@ -18,11 +18,13 @@ class GraphNode
 {
 	private:
 		int weight; //will hold the weight of the pointer when we implement a weighted graph
+		GraphNode* predecessor; //This will hold the address of the preceding node
 		string city; //Holds the name of the cities(nodes) for convienience of tracking.
 	public:
 		//Constructors
 		GraphNode(); 
 		GraphNode(string);
+		GraphNode(int, string);
 		//setters
 		void ChangeWeight(int);
 		void ChangeWeight(int, int);

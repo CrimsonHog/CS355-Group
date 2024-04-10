@@ -32,11 +32,10 @@ public:
 	/*
 		* METHODS
 	*/
-	void Insert(string c, int w); // for inserting into the array
-	void Remove(int val); // for removing from the array; only removing the root, so the array is the only parameter
-	bool FindShortestPath(); // finds the shortest path based upon weights; array has weights in GraphNode objects
 	void PercolateUp(int hole); // used to help with maintaining binary heap ordering property in Insert() and Remove()
 	void PercolateDown(int hole); // used with BuildHeap()
+	void Insert(string c, int w); // for inserting into the array
+	void Remove(int val); // for removing from the array; only removing the root, so the array is the only parameter
 	bool BuildHeap(); // sorts the elements of the array into a binary heap
 	int ViewMin(); // allows for the root to be viewed
 	void PrintBinaryHeap()const; // used for testing that the binary heap was created successfully
