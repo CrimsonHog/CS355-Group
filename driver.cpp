@@ -16,7 +16,7 @@ using namespace std;
 const int SIZE = 7; //This is the amount of nodes in the graph
 
 //void fileInput(int, string*, int);
-void fileInput(int adjacencyList[SIZE][SIZE]);
+void fileInputMatrix(int adjacencyList[SIZE][SIZE]);
 bool FindShortestPath(); // finds the shortest path based upon weights; array has weights in GraphNode objects
 
 int main(){
@@ -37,7 +37,7 @@ int main(){
     fileInput(edgeWeight, graphPathway, graphData);
 */
 	int adjacencyList [SIZE][SIZE];
-	fileInput(adjacencyList);
+	fileInputMatrix(adjacencyList);
     //Move FindShortestPath here since it uses the Binary Heap, not a part of the Binary heap
 
     return 0;
@@ -73,10 +73,10 @@ void fileInput(int edgeWeight, string* graphPathway, int graphData)
     // Currently does not work as is (LATER ISSUE: Wait for header files to be completed)
 };
 */
-void fileInput(int adjacencyList[][SIZE])
+void fileInputMatrix(int adjacencyList[SIZE][SIZE])
 {
 	ifstream inFile;
-    inFile.open("graphInfo.txt");
+    inFile.open("graphMatrix.txt");
 
 	int edgeWeight;
 	//File input

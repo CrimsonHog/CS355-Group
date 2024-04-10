@@ -26,12 +26,15 @@ class GraphNode
 		GraphNode(string);
 		GraphNode(int, string);
 		//setters
-		void ChangeWeight(int);
-		void ChangeWeight(int, int);
+		void ChangeWeight(int); //changes the weight of just a node without an edge;
+		void ChangeWeight(int, int); //changes the weight of a node with a weighted edge;
 		void ChangeCity(string);
+		void ChangePredecessor(GraphNode*); //used to store the preceding city
 		//getters
 		int GetWeight();
 		string GetCity();
+		GraphNode* GetPredecessor();
+		
 		
 	friend class BinaryHeap;
 };

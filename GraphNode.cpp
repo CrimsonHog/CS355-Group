@@ -89,7 +89,7 @@ Purpose: Changes the attributes stored in the GraphNode class
 	}
 	
 	/* 
-	ChangeCity(string inCity) - changes the name attribute of the node
+	ChangeCity(string inCity) - changes the city attribute of the node
 	Incoming Data - string inCity: the incoming name of a city
 	Outgoing data - N/A
 	Authors - Kelson Moore & Gage Mathis
@@ -100,9 +100,16 @@ Purpose: Changes the attributes stored in the GraphNode class
 		this->city = inCity;
 	}
 	
+	/* 
+	ChangePredecessor(string inCity) - changes the predecessor attribute of the node
+	Incoming Data - string inPred: the incoming address of a node
+	Outgoing data - N/A
+	Authors - Kelson Moore
+	Tester(s) - 
+	*/ 	
 	void GraphNode::ChangePredecessor(GraphNode inPred)
 	{
-		predecessor = inPred;
+		this->predecessor = inPred;
 	}
 	
 	
@@ -125,13 +132,25 @@ Purpose: Retrieves the attributes stored in the GraphGraphGraphNode class
 	/* 
 	string GetName() - returns the name attribute
 	Incoming Data - N/A
-	Outgoing data - string name: the name attribute
+	Outgoing data - string city: the city name attribute
 	Authors - Kelson Moore & Gage Mathis
 	Tester(s) - 
 	*/ 
 	string GraphNode::GetCity()
 	{
 		return city;
+	}
+	
+	/* 
+	GetPredecessor() - returns the predecessor attribute of the node
+	Incoming Data - N/A
+	Outgoing data - GraphNode* predecessor: The predecesor that holds the address of the node before it
+	Authors - Kelson Moore
+	Tester(s) - 
+	*/ 	
+	void GraphNode::ChangePredecessor(GraphNode inPred)
+	{
+		return predecessor;
 	}
 	
 	
