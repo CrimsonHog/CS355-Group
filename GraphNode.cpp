@@ -107,11 +107,12 @@ Purpose: Changes the attributes stored in the GraphNode class
 	Authors - Kelson Moore
 	Tester(s) - 
 	*/ 	
-	void GraphNode::ChangePredecessor(GraphNode inPred)
+	void GraphNode::ChangePredecessor(GraphNode* inPred)
 	{
-		this->predecessor = inPred;
+		this->predecessor = inPred; 
+		//we are sending in an entire GraphNode, not just a GraphNode*. This should be fine since "predecessor" is set to be a pointer of GraphNode type.
+		//So in theory, this still needs testing and maybe a rewrite, only the address of the inPred will be stored in "predecessor".
 	}
-	
 	
 /*
 GraphNode Getters
@@ -148,7 +149,7 @@ Purpose: Retrieves the attributes stored in the GraphGraphGraphNode class
 	Authors - Kelson Moore
 	Tester(s) - 
 	*/ 	
-	void GraphNode::ChangePredecessor(GraphNode inPred)
+	GraphNode* GraphNode::GetPredecessor()
 	{
 		return predecessor;
 	}

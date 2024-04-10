@@ -34,8 +34,5 @@ class GraphNode
 		int GetWeight();
 		string GetCity();
 		GraphNode* GetPredecessor();
-		
-		
-	friend class BinaryHeap;
 };
 #endif

@@ -13,10 +13,11 @@
 
 using namespace std;
 //GLOBAL CONST
-const int SIZE = 7; //This is the amount of nodes in the graph
+const int SIZE = 11; //This is the amount of nodes in the graph
 
 //void fileInput(int, string*, int);
-void fileInputMatrix(int adjacencyList[SIZE][SIZE]);
+void FileInputMatrix(int adjacencyList[SIZE][SIZE]);
+void FileInputArray(GraphNode nodeList[SIZE]);
 bool FindShortestPath(); // finds the shortest path based upon weights; array has weights in GraphNode objects
 
 int main(){
@@ -36,8 +37,10 @@ int main(){
     int graphData;
     fileInput(edgeWeight, graphPathway, graphData);
 */
+	GraphNode nodeList[SIZE];
+	FileInputArray(nodeList);
 	int adjacencyList [SIZE][SIZE];
-	fileInputMatrix(adjacencyList);
+	FileInputMatrix(adjacencyList);
     //Move FindShortestPath here since it uses the Binary Heap, not a part of the Binary heap
 
     return 0;
@@ -73,7 +76,54 @@ void fileInput(int edgeWeight, string* graphPathway, int graphData)
     // Currently does not work as is (LATER ISSUE: Wait for header files to be completed)
 };
 */
-void fileInputMatrix(int adjacencyList[SIZE][SIZE])
+
+// ----------------------------------------------------------
+// Function Name: FileInputArray
+// Function Type: void 
+// Inputs: GraphNode (array) graphNodes;
+// output: N/A
+// Description: Function calls cityInput.txt and inputs the
+//              the names of the cities into the GraphNoded array
+// Author: Kelson
+// ----------------------------------------------------------
+void FileInputArray(GraphNode nodeList[SIZE])
+{
+	ifstream inFile;
+    inFile.open("cityInput.txt");
+
+	string cityName = "";
+	//File input
+    if (inFile.is_open())
+	{
+        while(!inFile.eof()) //goes until the end of the file
+		{	
+			for(int i = 0; i < SIZE; i++)
+			{
+				getline(inFile, cityName);
+				nodeList[i].ChangeCity(cityName);
+			}
+        }
+        inFile.close();
+    }
+    /*
+    //Check Print for the array
+    for(int i = 0; i < SIZE; i++)
+	{
+		cout << nodeList[i].GetCity() << endl;
+	}*/
+}
+
+
+// ----------------------------------------------------------
+// Function Name: FileInputMatrix
+// Function Type: void 
+// Inputs: int (matrix) adjacencyList
+// output: N/A
+// Description: Function calls graphMatrix.txt and inputs the
+//              edge weights into the adjacency matrix
+// Author: Kelson
+// ----------------------------------------------------------
+void FileInputMatrix(int adjacencyList[SIZE][SIZE])
 {
 	ifstream inFile;
     inFile.open("graphMatrix.txt");
@@ -95,7 +145,8 @@ void fileInputMatrix(int adjacencyList[SIZE][SIZE])
         }
         inFile.close();
     }
-    /* //Check print for the matrix
+    /*
+    //Check print for the matrix
     for(int b = 0; b < SIZE; b++)
     {
     	for(int a = 0; a < SIZE; a++)
@@ -103,9 +154,9 @@ void fileInputMatrix(int adjacencyList[SIZE][SIZE])
     		cout << adjacencyList[a][b] << " ";
 		}
 		cout << endl;
-	}
-	*/
+	}*/
 }
+
 
 /*
 	Funtion Name: FindShortestPath()
