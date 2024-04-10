@@ -1,0 +1,61 @@
+File Input & array + matrix explination
+
+I have went and worked on the file input for the array and matrix since they are needed for me to make progress on the shortest path
+algorithm. It required a lot of thought for me to understand what I needed to do so just to explain myself and so we can all have this
+to reference when using the array and matrix for the rest of the file I am writing it all out here.
+
+File input:
+For the file input there are a few important things to keep in mind when writing your input files.
+
+- Using multiple files for inputting different things (for now)
+	- Since the adjacency matrix is filled of intgers I decided to make it into its own file and then we can use a different file for the
+	  names of the nodes. The files do not need to hold a starting weight or connection direction for any of the nodes. I have figured out
+	  a way to represent that within the adjacency matrix.
+	- The second file will be the names of the cities, as long as we keep these in the same order as the the order of the adjacency matrix
+	  there should be no issue in having a parallel array to the matrix that we can use for storage of the nodes.
+
+GraphNode Array: 
+I plan on using an array of GraphNode type since we need a place to store the Nodes of the array outside of the binary heap, a misunderstanding
+that I was having is that we were going to use the binary heap to store the GraphNodes permanently somehow, but upon further studying I realized
+that we are only using the Binary Heap as a prioroity queue. This means we need a place to store the nodes outside of the heap, so I made an array
+named "graphNodes" to hold the GraphNode class objects we are using.
+
+adjacencyList Matrix:
+This is the thing that took the most amount of thought for me to come to a conclusion about so I will try to be exhaustive in my explaintion on
+how to use the matrix to find the connections, connection direction, and edge weights of the matrix
+
+- Node representation: Using the y-axis (vertical) of the matrix is how we will represent what node we are currently looking at
+- Node connections: The x-axis (horizontal) of the matrix is where the weights and connection points coming off of the current node
+
+In the actual matrix input file, be sure to remove the labels for the rows and columns, I have them listed here for explination purposes
+I plan on going through the first three rows (first three nodes) in the matrix to try to ensure there is no confusion about how to use the matrix
+
+  A B C D E F G
+A 0 2 0 0 1 0 4
+B 0 0 3 5 0 7 0
+C 2 0 1 0 0 0 7
+D 3 4 0 0 0 1 1
+E 0 0 3 0 4 5 0
+F 0 0 0 1 1 8 0
+G 9 0 1 0 1 0 1
+
+So looking at node A, on the vertical axis since that is where the node is being represented, we can see that is connected to
+- Node B with an edge weight of 2
+- Node E with an edge weight of 1
+- Node G with an edge weight of 4
+
+Node B is connected to:
+- Node C with edge weight 3
+- Node D with edge weight 5
+- Node F with edge weight 7
+
+Node C is connected to:
+- Node A with edge weight 2
+- Node C with edge weight 1 
+//I have connected this node to itself to test my shortest path algorithm since it should be able to handle this since it will not
+//be possible to store a lower weight than what is currently stored in node C. 
+- Node G with edge weight 7
+
+However just to be clear we are using directional pointers, this is nessecary for dijkstra's algorithm.
+- Node G is connected to Node C, but with an edge weight of 1, not 7.
+- Node C is connected to Node A, but node A is not connected to Node C.
