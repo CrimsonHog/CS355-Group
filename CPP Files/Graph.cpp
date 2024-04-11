@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <limits>
+#include <fstream>
 #include "Graph.h"
 using namespace std;
 
@@ -26,12 +27,6 @@ Purpose: Used when creating a graph of nodes.
 	*/ 
 	Graph::Graph()
 	{
-		// initializing edge weights
-		for (int i = 0; i < EDGE_WEIGHTS; i++)
-		{
-			edgeWeights[i] = INT_MAX; // weights are assumed to be logical infinity
-		}
-		
 		// initializing all of the nodes to their city name and corresponding index
 		nodes[0].GraphNodes(0, "UNA");
 		nodes[1].GraphNodes(1, "Huntsville");
@@ -89,26 +84,30 @@ Purpose: Used when creating a graph of nodes.
 Graph Methods
 */
 	/* 
-	void SetEdgeWeights(int edgeWeights[], bool adjMat[][CITY_COUNT]) - uses adjacency matrix to 
+	void SetEdgeWeights(bool adjMat[][CITY_COUNT]) - uses adjacency matrix to 
 		assign weights from a txt file to each edge 
-	Incoming Data - int edgeWeights[], bool adjMat[][CITY_COUNT]: uses connections in graph to assign an edge weight
+	Incoming Data - bool adjMat[][CITY_COUNT]: uses connections in graph to assign an edge weight
 	Outgoing data - N/A
 	Authors - Lydia Sparks
 	Tester(s) - 
 	*/ 
-	void Graph::SetEdgeWeights(int edgeWeights[], bool adjMat[][CITY_COUNT])
+	void Graph::SetEdgeWeights(bool adjMat[][CITY_COUNT], ifstream inFile)
 	{
-		// NOT YET COMPLETED; need to add file
-		int edgeCount = 0; 
-		
-		for (int i = 0; i < CITYCOUNT; i++)
+		while (inFile)
 		{
-			for (int j = 0; j < CITYCOUNT; j++)
+			for (int i = 0; i < CITYCOUNT; i++)
 			{
-				if (adjacencyMatrix[i][j] == 1)
+				for (int j = 0; j < CITYCOUNT; j++)
 				{
-					edgeWeights[edgeCount] >> fileName;
-					edgeCount++;
+					if (adjacencyMatrix[i][j] == 1)
+					{
+						int weight; 
+						weight >> inFile;
+						
+						Edge edge(j, weight);
+						
+						nodes[i].SetEdge(edge);
+					}
 				}
 			}
 		}
