@@ -26,6 +26,12 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 	{
 		index = 0; // sets the index automatically to 0
 		name = "Default City"; //default name
+		
+		// initializing edges to default constructor of Edge object
+		for (int i = 0; i < EDGE_COUNT; i++)
+		{
+			edges[i].Edge();
+		}
 	}
 	
 	/* 
@@ -44,8 +50,7 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 	
 	/* 
 	GraphNodes() - parameterized constructor for the index, weight, and city name of the node
-	Incoming Data - int inIndex, int inWeight, string inName: node is constructed with specified index, 
-		weight, and city name
+	Incoming Data - int inIndex, string inName: node is constructed with specified index and city name
 	Outgoing data - N/A
 	Authors - Lydia Sparks
 	Tester(s) - 
@@ -99,6 +104,21 @@ Purpose: Changes the attributes stored in the GraphNodes class
 	// {
 	// 	this->name = inName;
 	// }
+	
+	/* 
+	SetEdge(Edge edge) - sets the edge weight and the index of the node it points to
+	Incoming Data - Edge edge: an incoming Edge object will contain an index and weight to 
+		be copied over to the node's array of edges
+	Outgoing data - N/A
+	Authors - Lydia Sparks
+	Tester(s) - 
+	*/ 
+	void GraphNodes::SetEdge(Edge edge)
+	{
+		int edgeCount = 0;
+		edges[edgeCount].nodeConnectionIndex = edge.nodeConnectionIndex;
+		edges[edgeCount].weight = edge.weight;
+	}
 
 /*
 GraphNodes Getters
