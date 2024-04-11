@@ -20,6 +20,7 @@ private:
 	/*
 		* ATTRIBUTES
 	*/
+	int nodePreviousIndex;
 	int nodeConnectionIndex;
 	int weight;
 	
@@ -28,7 +29,7 @@ public:
 		* CONSTRUCTORS/METHODS
 	*/
 	Edge();
-	Edge(int, int);
+	Edge(int, int, int);
 };
 
 #endif
