@@ -22,6 +22,8 @@ class GraphNodes
 		*/
 		int index; // holds the index of the node to help with adjacency matrix
 		string name; // holds the name of the cities(nodes) for convienience of tracking.
+		Edge edges[EDGE_COUNT]; // array of edges since nodes may have more than one edge
+		
 	public:
 		/*
 			* CONSTRUCTORS/METHODS
@@ -35,6 +37,7 @@ class GraphNodes
 		//void ChangeWeight(int);
 		//void ChangeWeight(int, int);
 		//void ChangeName(string);
+		void SetEdge(Edge);
 		
 		//getters
 		int GetIndex();
