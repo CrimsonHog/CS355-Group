@@ -9,6 +9,7 @@
 // ---------------------------------------------------------------------------
 
 #include "GraphNodes.h"
+#include <limits>
 using namespace std;
 
 /*
@@ -26,6 +27,7 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 	{
 		index = 0; // sets the index automatically to 0
 		name = "Default City"; //default name
+		weight = INT_MAX;
 		
 		// initializing edges to default constructor of Edge object
 		for (int i = 0; i < EDGE_COUNT; i++)
@@ -117,7 +119,9 @@ Purpose: Changes the attributes stored in the GraphNodes class
 	{
 		int edgeCount = 0;
 		edges[edgeCount].nodeConnectionIndex = edge.nodeConnectionIndex;
+		edges[edgeCount].nodePreviousIndex = edge.nodePreviousIndex;
 		edges[edgeCount].weight = edge.weight;
+		edgeCount++;
 	}
 
 /*
