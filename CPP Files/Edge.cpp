@@ -29,6 +29,8 @@ Purpose: Used when creating an edge to connect nodes.
 	{
 		cout << "The index of the node the edge connects to should always be passed as a parameter, setting to 20." << endl;
 		nodeConnectionIndex = 20; // index that goes outside of size of array since edges should be always initialized
+		cout << "The index of the previous node should always be passed as a parameter, setting to 19." << endl;
+		nodePreviousIndex = 19; // index that goes outside of size of array since edges should be always initialized
 		weight = INT_MAX; // assuming the edge has an infinite weight
 	}
 	
@@ -39,9 +41,10 @@ Purpose: Used when creating an edge to connect nodes.
 	Authors - Lydia Sparks
 	Tester(s) - 
 	*/ 
-	Edge::Edge(int i, int w)
+	Edge::Edge(int prev, int next, int w)
 	{
-		nodeConnectionIndex = i;
+		nodePreviousIndex = prev;
+		nodeConnectionIndex = next;
 		weight = w;
 	}
 
