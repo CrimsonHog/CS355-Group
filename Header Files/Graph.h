@@ -8,13 +8,12 @@
 // between graph nodes.
 // ---------------------------------------------------------------------------
 
-// NOTE: I will be implementing an edge class to make an attribute of the node class since I ran into a problem with 
-// merging edges and nodes
-
 #ifndef _GRAPH_H
 #define _GRAPH_H
 #include <iostream>
+#include <fstream>
 #include "GraphNodes.h"
+#include "Edge.h"
 using namespace std;
 
 /*
@@ -31,7 +30,6 @@ private:
 	*/
 	GraphNodes nodes[CITY_COUNT];
 	int nodeCount;
-	int edgeWeights[EDGE_COUNT];
 	bool adjacencyMatrix[CITY_COUNT][CITY_COUNT];
 	
 public:
@@ -39,7 +37,7 @@ public:
 		* CONSTRUCTORS/METHODS
 	*/
 	Graph(); 
-	void SetEdgeWeights(int, bool);
+	void SetEdgeWeights(bool, ifstream);
 };
 
 #endif
