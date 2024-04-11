@@ -93,7 +93,7 @@ Graph Methods
 	*/ 
 	void Graph::SetEdgeWeights(bool adjMat[][CITY_COUNT], ifstream inFile)
 	{
-		while (inFile)
+		while (inFile) 
 		{
 			for (int i = 0; i < CITYCOUNT; i++)
 			{
