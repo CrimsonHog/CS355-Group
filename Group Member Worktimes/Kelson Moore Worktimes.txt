@@ -4,3 +4,32 @@ Kelson Moore: Work Times
 - Got a headstart on the Design Document.
 04/03/24: 5:30 - 6:10 Group In-Person (Ethan Virtual)
 - Reviewed and adjusted Desgin Document with group.
+
+4/08/24 5:30 - 7:30 Group In-Person (Ethan Virtual)
+- Started on the code for the project
+- Divided up tasks so we know who is working on what
+
+4/09/24 12:30 - 1:45 Group In-Person
+- Continued working on code, made a lot of progress on the GraphNodes class
+
+4/09/24 2:30 - 10:00 (plenty of breaks taken) Independent
+- Studied binary heaps and Dijkstra shortest path
+- Revised Design Document
+  - Added style guide and comment guide
+- Made a lot of progress on the file inputs & matrixes for the graph
+
+4/10/24 5:30 - 6:45 Group In-Person
+- Wrote perlocate up and down with ethan
+- Fixed insert and remove from binary heap
+- Came up with a revised plan for how to handle nodes and edges
+
+4/11/24 12:30 - 1:45 Group In-Person
+- Continued to work, revised code to work with new plan with updated graph nodes and edges
+
+4/12/24 11:30 - ??? Independent
+- Wrote dijkstra's shortest path algorithm
+- Reworked driver
+- Studied how to attach java front-end to C++ back-end
+- Wrote java GUI front end
+
+
