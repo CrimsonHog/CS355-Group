@@ -12,149 +12,49 @@
 #include "BinaryHeap.h"
 
 using namespace std;
-//GLOBAL CONST
-const int SIZE = 11; //This is the amount of nodes in the graph
 
-//void fileInput(int, string*, int);
-void FileInputMatrix(int adjacencyList[SIZE][SIZE]);
-void FileInputArray(GraphNode nodeList[SIZE]);
-bool FindShortestPath(); // finds the shortest path based upon weights; array has weights in GraphNode objects
+bool FindShortestPath(Graph); //the algorithm that finds the shortest path
+int PrintMenu(); //lets the user chose which aspect they want to minimize
 
 int main(){
-    // Front end, doesnt have to be anything to complicated
-    // This could be where we call and create objects from header files
-            // New variables do not all need to be at the top, call them where necessary
-            // No need to clutter the reading of the drive
-    
+    //Get the choice from the user on what they want to minimize
+	int choice = PrintMenu();
 
-    //Create menu
-
-    // Call Graph calls - creating and taking 
-    //Dummy Graph variables
-    
-/*   int edgeWeight; 
-    string* graphPathway; 
-    int graphData;
-    fileInput(edgeWeight, graphPathway, graphData);
-*/
-	GraphNode nodeList[SIZE];
-	FileInputArray(nodeList);
-	int adjacencyList [SIZE][SIZE];
-	FileInputMatrix(adjacencyList);
-    //Move FindShortestPath here since it uses the Binary Heap, not a part of the Binary heap
+	Graph theGraph; //this is the graph that we will be using to run the entire program
+	
+	//depending on what the user choses this will load the edges from whichever text file corresponds to the aspect the user chose to minimize
+	switch (choice)
+	{
+		case 1:
+			cout << "You have chosen minimize time" << endl;
+			theGraph.SetEdgeWeights("TimePath.txt");
+			break;
+		case 2:
+			cout << "You have chosen to minimize cost" << endl;
+			theGraph.SetEdgeWeights("CostPath.txt");
+			break;
+		case 3:
+			cout << "You have chosen to minimize distance" << endl;
+			theGraph.SetEdgeWeights("DistancePath.txt");
+			break;
+		case 4:
+			cout << "You have chosen to exit" << endl;
+			break;
+		default:
+			cout << "Invalid choice" << endl;
+			break;
+	}
+	
+	if(choice >= 4 || choice < 1)
+	{
+		return 0;
+	}
+	else
+	{
+		FindShortestPath(theGraph);
+	}
 
     return 0;
-}
-/*
-// ----------------------------------------------------------
-// Function Name: fileInput
-// Function Type: void 
-// Inputs: Int, string pointer, int
-// output: N/A
-// Description: Function calls graphInfo text file and inputs them into the 
-//              graph node array
-// Author: Ethan
-// ----------------------------------------------------------
-void fileInput(int edgeWeight, string* graphPathway, int graphData)
-{
-    // Dummy Variables for the file 
-    // Change once we are able to call the GraphNode Header file
-    ifstream inputFile;
-    inputFile.open("graphInfo.txt");
-
-    //File input
-    if (inputFile.is_open()){
-        while(!inputFile.eof()){
-            inputFile >> edgeWeight;
-            inputFile >> *graphPathway;
-            inputFile >> graphData;
-        }
-        inputFile.close();
-    }
-
-    // Come back and fix this function so that it works with the GraphNode Array
-    // Currently does not work as is (LATER ISSUE: Wait for header files to be completed)
-};
-*/
-
-// ----------------------------------------------------------
-// Function Name: FileInputArray
-// Function Type: void 
-// Inputs: GraphNode (array) graphNodes;
-// output: N/A
-// Description: Function calls cityInput.txt and inputs the
-//              the names of the cities into the GraphNoded array
-// Author: Kelson
-// ----------------------------------------------------------
-void FileInputArray(GraphNode nodeList[SIZE])
-{
-	ifstream inFile;
-    inFile.open("cityInput.txt");
-
-	string cityName = "";
-	//File input
-    if (inFile.is_open())
-	{
-        while(!inFile.eof()) //goes until the end of the file
-		{	
-			for(int i = 0; i < SIZE; i++)
-			{
-				getline(inFile, cityName);
-				nodeList[i].ChangeCity(cityName);
-			}
-        }
-        inFile.close();
-    }
-    /*
-    //Check Print for the array
-    for(int i = 0; i < SIZE; i++)
-	{
-		cout << nodeList[i].GetCity() << endl;
-	}*/
-}
-
-
-// ----------------------------------------------------------
-// Function Name: FileInputMatrix
-// Function Type: void 
-// Inputs: int (matrix) adjacencyList
-// output: N/A
-// Description: Function calls graphMatrix.txt and inputs the
-//              edge weights into the adjacency matrix
-// Author: Kelson
-// ----------------------------------------------------------
-void FileInputMatrix(int adjacencyList[SIZE][SIZE])
-{
-	ifstream inFile;
-    inFile.open("graphMatrix.txt");
-
-	int edgeWeight;
-	//File input
-    if (inFile.is_open())
-	{
-        while(!inFile.eof()) //goes until the end of the file
-		{	
-			for(int y = 0; y < SIZE; y++)
-			{
-	        	for(int x = 0; x < SIZE; x++) //goes across the row of int, size must correspond to the file
-	        	{
-	            	inFile >> edgeWeight;
-	        		adjacencyList[x][y] = edgeWeight;
-				}
-			}
-        }
-        inFile.close();
-    }
-    /*
-    //Check print for the matrix
-    for(int b = 0; b < SIZE; b++)
-    {
-    	for(int a = 0; a < SIZE; a++)
-    	{
-    		cout << adjacencyList[a][b] << " ";
-		}
-		cout << endl;
-	}*/
 }
 
 
@@ -166,11 +66,11 @@ void FileInputMatrix(int adjacencyList[SIZE][SIZE])
 	Author: Kelson Moore
 	Testers: 
 */
-/*
-bool FindShortestPath(/*GraphNode root)
+
+bool FindShortestPath(Graph theGraph)
 {
 	//set the current to orgin
-	GraphNode current = orgin;
+	BinaryHeap theHeap(theGraph);//passing in the graph so that the heap can initialize itself with the origin point of the graph.
 	
 	//do until you get to destination in a way that has destination < min weight of heap
 	//Check and see what the current node can see, add those to the binary heap
@@ -180,9 +80,29 @@ bool FindShortestPath(/*GraphNode root)
 		//if not then continue on without making weight changes
 	//set current to what the minimum node is (top of the heap)
 	
-	while(end.getWeight > root.getWeight) //where end is the destination & root is the first value in the implicit heap (will implement later)
+	/*while(end.getWeight > root.getWeight) //where end is the destination & root is the first value in the implicit heap (will implement later)
 	{
-		root
-	}
+		
+	}*/
 	
-}*/	
+}
+
+/*
+	Funtion Name: PrintMenu
+	Function Inputs: N/A
+	Function Outputs: int choice: Corresponds to whatever the user decided to minimize
+	Function Description: Will output a list of choices to the user, the user will select one
+	Author: Kelson Moore
+	Testers: 
+*/
+int PrintMenu()
+{
+	int choice;
+	cout << "What do you want to minimize? " << endl
+		 << "\t1. Time" << endl
+		 << "\t2. Cost" << endl
+		 << "\t3. Distance" << endl
+		 << "\t4. Exit" << endl;
+
+	cin >> choice;
+}

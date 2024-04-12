@@ -1,3 +1,6 @@
+#ifndef _BINARYHEAP_H
+#define _BINARYHEAP_H
+
 // ---------------------------------------------------------------------------
 // Name: Gage Mathis, Kelson Moore, Ethan Rinke, Lydia Sparks
 // Course-Section: CS355-Section#02
@@ -7,15 +10,15 @@
 // used to implement the shortest path algorithm in our road trip project.
 // ---------------------------------------------------------------------------
 
-#ifndef _BINARYHEAP_H
-#define _BINARYHEAP_H
 #include "GraphNode.h"
+#include "Graph.h"
+#include "Edge.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
 //GLOBALS
-const int CITY_COUNT = 20; // number of cities in the txt file
 
 /*
 	* BINARY HEAP CLASS
@@ -27,18 +30,21 @@ private:
 	/*
 		* ATTRIBUTES
 	*/
-	
+	vector<GraphNode> heap;
+
 public:
 	/*
 		* METHODS
 	*/
-	void PercolateUp(int hole); // used to help with maintaining binary heap ordering property in Insert() and Remove()
-	void PercolateDown(int hole); // used with BuildHeap()
-	void Insert(string c, int w); // for inserting into the array
-	void Remove(int val); // for removing from the array; only removing the root, so the array is the only parameter
-	bool BuildHeap(); // sorts the elements of the array into a binary heap
-	int ViewMin(); // allows for the root to be viewed
-	void PrintBinaryHeap()const; // used for testing that the binary heap was created successfully
-};
+	//Constructors
+	BinaryHeap();
+	BinaryHeap(Graph);
+	//keeping order in the heap
+	void PercolateUp(int index); // used to help with maintaining binary heap ordering property in Insert() and Remove()
+	void PercolateDown(int index); // used with BuildHeap()
+	//adding to and taking away from the heap
+	void Insert(GraphNode newNode); // for inserting into the array
+	GraphNode Remove(GraphNode newNode); // for removing from the array; only removing the root, so the array is the only parameter
+	};
 
 #endif

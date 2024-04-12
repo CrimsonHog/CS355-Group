@@ -1,74 +1,113 @@
 #ifndef _BINARYHEAP_CPP
 #define _BINARYHEAP_CPP
+
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "BinaryHeap.h"
 using namespace std;
+
 /*
-	Function Name: PercolateUp
-	Function Inputs: int hole
+	Function Name: BinaryHeap
+	Function Inputs: N/A
 	Function Outputs: N/A
-	Function Description: 
-	Author: Ethan
+	Function Description: Default Constructor for the BinaryHeap, not good to use since we need to initialize the heap with a node from the graph
+	Author: Kelson
 	Testers:
 */
-void BinaryHeap::PercolateUp(GraphNode factor[factorSize], int hole){
-	hole = factorSize - 1;
-	int parent = hole / 2;
-	GraphNode temp = factor[hole];
-	
-	while (hole > 1 && temp.weight < factor[parent].weight){
-		factor[hole] = factor[parent];
-		hole = parent;
-		parent = hole / 2;
+BinaryHeap::BinaryHeap()
+{
+	cout << "Please dont use this constructor, pass in a Graph" << endl;
+}
+
+/*
+	Function Name: BinaryHeap
+	Function Inputs: Graph theGraph: This is the graph that holds all of our data
+	Function Outputs: N/A
+	Function Description: will intialize the implicit vector of the heap with the origin node of the graph
+	Author: Kelson
+	Testers:
+*/
+BinaryHeap::BinaryHeap(Graph theGraph)
+{
+	heap.push_back(theGraph.GetNode(0)); //set the index being passed in to whatever the origin node of the graph will be
+}
+
+
+/*
+	Function Name: PercolateUp
+	Function Inputs: GraphNode newNode
+	Function Outputs: N/A
+	Function Description: 
+	Author: Ethan / Kelson
+	Testers:
+*/
+void BinaryHeap::PercolateUp(int index)
+{
+	while(index > 0 && heap[index].GetWeight() < heap[(index - 1) / 2].GetWeight())
+	{
+		//swap the newNode and parent
+		GraphNode temp = heap[index];
+		heap[index] = heap[(index - 1) / 2];
+		heap[(index - 1) / 2] = temp;
+		//update the index
+		index = (index - 1) / 2;
 	}
-	factor[hole] = temp;
 };
 
 /*
 	Function Name: PercolateDown
-	Function Inputs: GraphNode factor[factorSize], int hole
+	Function Inputs: GraphNode newNode
 	Function Outputs: N/A
 	Function Description: 
-	Author: Ethan
+	Author: Ethan / Kelson / Gage
 	Testers:
 */
-void BinaryHeap::PercolateDown(GraphNode factor[factorSize], int hole){
-	int child;
-	GraphNode temp = factor[hole];
-	
-	while (hole * 2 <= factorSize){
-		child = hole * 2;
-		if (child != factorSize && factor[child + 1].weight < factor[child].weight){
-			child++;
+void BinaryHeap::PercolateDown(int index)
+{
+	int childIndex = 2 * index + 1;
+	GraphNode value = heap[index];
+
+	while(childIndex < heap.size())
+	{
+		GraphNode maxValue = value;
+		int maxIndex = -1;
+		for(int i = 0; i < 2 && i + childIndex < heap.size(); i++)
+		{
+			if(heap[i + childIndex].GetWeight() < maxValue.GetWeight())
+			{
+				maxValue = heap[i + childIndex];
+				maxIndex = i + childIndex;
+			}
 		}
-		if (factor[child].weight < temp.weight){
-			factor[hole] = factor[child];
+
+		if (maxValue.GetWeight() == value.GetWeight())
+		{
+			return;
 		}
-		else{
-			break;
+		else
+		{
+			GraphNode temp = heap[index];
+			heap[index] = heap[maxIndex];
+			heap[maxIndex] = temp;
+			index = maxIndex;
 		}
-		hole = child;
+
+		childIndex = 2 * index + 1;
 	}
-	factor[hole] = temp;
-};
+}
 
 /*
 	Function Name: Insert
-	Function Inputs: string c, int w, GraphNode factor[]
+	Function Inputs: 
 	Function Outputs: N/A
 	Function Description: Insert into node array and percolate up to make sure any new node is in the correct position
-	Author: Ethan
+	Author: Ethan / Kelson
 	Testers:
 */
-void BinaryHeap::Insert(string c, int w, GraphNode factor[]){
-	GraphNode temp;
-//	temp.city = c;
-	temp.ChangeCity(c);
-//	temp.weight = w;
-	temp.ChangeWeight(w);
-	
-	PercolateUp(factor, factorSize);
+void BinaryHeap::Insert(GraphNode newNode){
+	heap.push_back(newNode);
+	PercolateUp(heap.size());
 };
 
 /*
@@ -76,28 +115,17 @@ void BinaryHeap::Insert(string c, int w, GraphNode factor[]){
 	Function Inputs: GraphNode factor[], int val
 	Function Outputs: N/A
 	Function Description: Remove the root node from the array and percolate down to make sure the array is in the correct order
-	Author: Ethan
+	Author: Ethan / Kelson
 	Testers: 
 */
-void BinaryHeap::Remove(GraphNode factor[], int val){
-	GraphNode temp = factor[1];
-	factor[1] = factor[factorSize];
-	factor[factorSize] = temp;
-	
-	PercolateDown(factor, factorSize);
+GraphNode BinaryHeap::Remove(GraphNode newNode){
+	GraphNode returnValue = heap[0];
+	heap[0] = heap[heap.size() - 1];
+	heap.pop_back();
+	PercolateDown(0);
 };
 
-/*
-  Funtion Name: PrintBinaryHeap
-  Function Inputs: Node factor
-  Function Outputs: cout City and corresponding Weight
-  Function Description: used for testing that the binary heap was created successfully. prints city alongside corresponding weight. 
-  Author: Gage Mathis
-  Testers: 
-*/
-void BinaryHeap::PrintBinaryHeap(Node factor)const {
-  for (int i = 0; i < CITY_COUNT; i++) {
-    cout << "City: " << factor.city[i] << "has Weight: " << factor.weight[i] << endl ;
-  }
-}
+
+
+
 #endif
