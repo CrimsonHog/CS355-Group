@@ -56,5 +56,9 @@ With Group: Worked on adding to edge class and figuring out how to implement the
 ---------
 2:00-3:00 PM
 Individual: Studied how to access the data from all the classes and implement them into the binary heap.
+*********************************************************************************************************************************
+10:00-11:30 PM
+Individual: Looked through the code that Kelson implemented for the binary heap and overloaded the assignment operator for 
+a deep copy of the nodes in the graph. I also made a destructor for the pointer in the node class.
 
 
