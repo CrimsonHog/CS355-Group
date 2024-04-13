@@ -23,3 +23,35 @@ Individual: Made BinaryHeap.h to give the group a rough outline of the methods w
 5:30-7:00 PM
 With Group: Started implementing Binary Heap node constructors.
 
+4/9/24
+---------
+12:30-1:30 PM
+With Group: Worked on adjacency matrix representation.
+
+4/10/24
+---------
+3:00-5:15 PM
+Individual: Worked on implementing the adjacency matrix to correspond with edges in the graph.
+*********************************************************************************************************************************
+5:30-7:00 PM
+With Group: Working on building the binary heap and figuring out how to merge the graph into the binary heap.
+*********************************************************************************************************************************
+9:30-11:59 PM
+Individual: Created Graph class to implement adjacency list, created edges, initialized nodes, and created getters and setters.
+
+4/11/24
+---------
+12:00-12:20 AM
+Individual: Started thinking about implementing an Edge class after having issues with edges in Graph class. There will be 
+an Edge object array that is an attribute of the Node class so that each node can have more than one edge.
+**********************************************************************************************************************************
+11:10-12:15 PM
+Individual: Implemented Edge class and used Edge objects to set the weights of the edges connected to specific nodes, with weights
+loaded in from a txt file.
+
+4/12/24
+---------
+2:00-3:00 PM
+Individual: Studied how to access the data from all the classes and implement them into the binary heap.
+
+
