@@ -53,6 +53,12 @@ class GraphNode
 		int GetEdgeWeight(int); //getting the weight of the edge at the index being passed in
 		GraphNode GetPrecedingNode(); //passes back the preceding node stored in GraphNode
 		GraphNode* GetPrecedingNodePtr();
+
+		// overloaded operators
+		void operator=(const GraphNode&); // allows for a deep copy of data to be performed
+		
+		//Destructors
+		~GraphNode();
 };
 
 #endif
