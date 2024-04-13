@@ -26,12 +26,11 @@ Kelson Moore: Work Times
 4/11/24 12:30 - 1:45 Group In-Person
 - Continued to work, revised code to work with new plan with updated graph nodes and edges
 
-4/12/24 11:30 - ??? Independent
+4/12/24 11:30 - 7:53 Independent
 - Fixed compatibility between files
 - Fixed errors in all files
 - Wrote dijkstra's shortest path algorithm
 - Reworked driver
 - Studied how to attach java front-end to C++ back-end
-- Wrote java GUI front end
 
 
