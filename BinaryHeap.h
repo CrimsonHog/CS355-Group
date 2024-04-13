@@ -44,7 +44,7 @@ public:
 	void PercolateDown(int index); // used with BuildHeap()
 	//adding to and taking away from the heap
 	void Insert(GraphNode newNode); // for inserting into the array
-	GraphNode Remove(GraphNode newNode); // for removing from the array; only removing the root, so the array is the only parameter
+	GraphNode Remove(); // for removing from the array; only removing the root, so the array is the only parameter
 	};
 
 #endif

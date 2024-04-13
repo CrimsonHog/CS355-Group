@@ -8,17 +8,24 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <vector>
 #include "GraphNode.h"
 #include "BinaryHeap.h"
 
 using namespace std;
 
-bool FindShortestPath(Graph); //the algorithm that finds the shortest path
-int PrintMenu(); //lets the user chose which aspect they want to minimize
+void FindShortestPath(Graph); //the algorithm that finds the shortest path
+void PrintMenu(int& choice); //lets the user chose which aspect they want to minimize
+void ListShortestPath(Graph); //makes and prints the shortest path list
+
+//Global Constants
+int ORIGIN_INDEX = 0; //the index of your starting node in the Graph Class array
+int DESTINATION_INDEX = 10; //the index of your destination node in the Graph Class array
 
 int main(){
     //Get the choice from the user on what they want to minimize
-	int choice = PrintMenu();
+	int choice = 0;
+	PrintMenu(choice);
 
 	Graph theGraph; //this is the graph that we will be using to run the entire program
 	
@@ -53,7 +60,8 @@ int main(){
 	{
 		FindShortestPath(theGraph);
 	}
-
+	
+	ListShortestPath(theGraph);
     return 0;
 }
 
@@ -67,24 +75,37 @@ int main(){
 	Testers: 
 */
 
-bool FindShortestPath(Graph theGraph)
+void FindShortestPath(Graph theGraph)
 {
-	//set the current to orgin
 	BinaryHeap theHeap(theGraph);//passing in the graph so that the heap can initialize itself with the origin point of the graph.
 	
-	//do until you get to destination in a way that has destination < min weight of heap
-	//Check and see what the current node can see, add those to the binary heap
-	//check adjacency matrix to see if the adjacent node's weight is more than current weight + edge
-		//if checked weight is less, call ChangeWeight(weight, edge); edge will be stored in the adjaency matrix
-			//if changed store current node as the predecessor to the changed node
-		//if not then continue on without making weight changes
-	//set current to what the minimum node is (top of the heap)
+	GraphNode currentNode = theGraph.GetNode(ORIGIN_INDEX); //start off by setting equal to whatever will be the orgin node
+	GraphNode destinationNode = theGraph.GetNode(DESTINATION_INDEX); //pass in the index of whatever your destination node is
 	
-	/*while(end.getWeight > root.getWeight) //where end is the destination & root is the first value in the implicit heap (will implement later)
+	//using GraphNodes and the edges stores in them find the next connected nodes
+	//put the next connected nodes into the heap if the sum of currentNode.weight + edgeWeight < ConnectedNode.weight
+		//before the node goes into the heap, update the weight of ConnectedNode to be currentNode.weight + edgeWeight.
+		//Once that weight is changes update the predecessor Value inside of GraphNode for easy back traversal
+	//the heap will perlocate GraphNodes around in the heap until the node with the minimum weight reaches the root
+	//Do that for all the edges stored in the GraphNode edge vector
+	//Set currentNode to the root of the heap and repeat the process until you get to destinationNode with destinationNode having the smallest weight of the heap
+		//Using this as the stop condition for the while loop since once you get to the destination using the shorest path each time you must have found
+		// the shorest path to the destination, and any nodes left in the heap would take more distance to get to the destination
+	while(currentNode.GetWeight() < destinationNode.GetWeight())
 	{
-		
-	}*/
-	
+		for(int i = 0; i < currentNode.GetEdgeAmount(); i++)
+		{
+			GraphNode checkNode = theGraph.GetNode(currentNode.CheckNextNode(i)); //creates a variable that is used to check the next Node against the current Node
+			if(checkNode.GetWeight() > (currentNode.GetWeight() + currentNode.GetEdgeWeight(i)))
+			{
+				//setting the weight of the checkNode to the weight of currentNode + the connecting edge
+				checkNode.ChangeWeight(currentNode.GetWeight() + currentNode.GetEdgeWeight(i));
+				checkNode.SetPrecedingNode(currentNode); //setting the preceding node attribute in GraphNode to the node that changed its weight
+				theHeap.Insert(checkNode); //putting the updated checkNode into the heap
+			}
+		}
+		currentNode = theHeap.Remove(); //setting the current Node to whatever the top of the heap is
+	}
 }
 
 /*
@@ -95,9 +116,8 @@ bool FindShortestPath(Graph theGraph)
 	Author: Kelson Moore
 	Testers: 
 */
-int PrintMenu()
+void PrintMenu(int& choice)
 {
-	int choice;
 	cout << "What do you want to minimize? " << endl
 		 << "\t1. Time" << endl
 		 << "\t2. Cost" << endl
@@ -105,4 +125,24 @@ int PrintMenu()
 		 << "\t4. Exit" << endl;
 
 	cin >> choice;
+}
+
+void ListShortestPath(Graph theGraph)
+{
+	vector<GraphNode> shortestPath;
+	GraphNode tempNode = theGraph.GetNode(DESTINATION_INDEX);
+	int i = 0;
+	while(tempNode.GetPrecedingNodePtr() != nullptr)
+	{
+		shortestPath[i] = tempNode.GetPrecedingNode();
+		i++;
+		tempNode = tempNode.GetPrecedingNode();
+	}
+	
+	cout << "/tShortest Path is: " << endl; 
+    for(int x = shortestPath.size(); x >= 0; x--)
+    {
+    	GraphNode temp = shortestPath[x];
+		cout << temp.GetName() << endl;
+	}
 }

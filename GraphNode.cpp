@@ -27,13 +27,15 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 	Tester(s) - 
 	*/ 
 	GraphNode::GraphNode()
-	{
+	{	
 		index = 0; // sets the index automatically to 0
 		name = "Default City"; //default name
 		weight = INT_MAX;
 		
 		// initializing edges to default constructor of Edge object
 		edges.resize(1);
+		edges[1] = Edge();
+		precedingNode = nullptr;
 	}
 	
 	/* 
@@ -48,11 +50,12 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 		index = inIndex;
 		name = inName;
 		weight = INT_MAX;
+		
+		// initializing edges to default constructor of Edge object
+		edges.resize(1);
+		edges[1] = Edge();
+		precedingNode = nullptr;
 	}
-
-/*
-	* SETTERS ARE COMMENTED OUT SINCE NOT NEEDED FOR NOW
-*/
 
 /*
 GraphNode Setters
@@ -84,7 +87,18 @@ Purpose: Changes the attributes stored in the GraphNode class
 		edges[edgeIndex].SetPrevConnectionIndex(inEdge.GetPrevConnectionIndex());
 		edges[edgeIndex].SetEdgeWeight(inEdge.GetEdgeWeight());
 	}
-
+	
+	/* 
+	SetPrecedingNode()
+	Incoming Data - GraphNode preceder: a graphNode being passed in to be stored as the node that comes before this one
+	Outgoing data - N/A
+	Authors - Kelson Moore
+	Tester(s) - 
+	*/ 
+	void GraphNode::SetPrecedingNode(GraphNode preceder)
+	{
+		precedingNode = &preceder;
+	}
 /*
 GraphNode Getters
 Purpose: Retrieves the attributes stored in the GraphNode class
@@ -125,4 +139,52 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 		return name;
 	}
 	
+	/* 
+	int GetGetEdgeAmount() - returns the amount of edges the Node has (size of the vector of edges)
+	Incoming Data - N/A
+	Outgoing data - int that corresponds with the size of the vector
+	Authors - Kelson Moore
+	Tester(s) - 
+	*/ 
+	int GraphNode::GetEdgeAmount()
+	{
+		return edges.size();
+	}
+	
+	/* 
+	int CheckNextNode()
+	Incoming Data -	int edgeIndex: passing the index of the edge you are wanting to check
+	Outgoing data - int: will return the index of the next GraphNode
+	Authors - Kelson Moore
+	Tester(s) - 
+	*/ 
+	int GraphNode::CheckNextNode(int edgeIndex)
+	{
+		Edge connection = edges[edgeIndex]; //setting an edge object to the edge stored in that index of the vector
+		return connection.GetNodeConnectionIndex(); //returning the index of the next node in the Graph Object array of nodes
+		
+	}
+	
+	/* 
+	int GetEdgeWeight()
+	Incoming Data -	int edgeIndex: passing the index of the edge you are wanting to check
+	Outgoing data - int: will return the weight of the edge at the index specified
+	Authors - Kelson Moore
+	Tester(s) - 
+	*/ 
+	int GraphNode::GetEdgeWeight(int edgeIndex)
+	{
+		Edge connection = edges[edgeIndex]; //setting an edge object to the edge stored in that index of the vector
+		return connection.GetEdgeWeight(); //returning the weight of the edge
+	}
+	
+	GraphNode GraphNode::GetPrecedingNode()
+	{
+		return *precedingNode;
+	}
+	
+	GraphNode* GraphNode::GetPrecedingNodePtr()
+	{
+		return precedingNode;
+	}
 #endif

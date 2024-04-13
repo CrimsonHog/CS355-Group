@@ -118,7 +118,7 @@ void BinaryHeap::Insert(GraphNode newNode){
 	Author: Ethan / Kelson
 	Testers: 
 */
-GraphNode BinaryHeap::Remove(GraphNode newNode){
+GraphNode BinaryHeap::Remove(){
 	GraphNode returnValue = heap[0];
 	heap[0] = heap[heap.size() - 1];
 	heap.pop_back();

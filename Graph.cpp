@@ -97,20 +97,18 @@ Graph Methods
 	void Graph::SetEdgeWeights(string fileName)
 	{	
 		ifstream inFile(fileName);
+		for (int i = 0; i < CITYCOUNT; i++) //outer loop represents what city the edge is coming from
 		{
-			for (int i = 0; i < CITYCOUNT; i++)
+			for (int j = 0; j < CITYCOUNT; j++) //inner loop represents what city the edge is going to
 			{
-				for (int j = 0; j < CITYCOUNT; j++)
+				if (adjacencyMatrix[i][j] == 1) //checks to see if the connection has been labeled true or not
 				{
-					if (adjacencyMatrix[i][j] == 1)
-					{
-						int weight; 
-						inFile >> weight;
-						
-						Edge edge = Edge(i, j, weight);
-						
-						nodes[i].SetEdge(edge);
-					}
+					int weight; 
+					inFile >> weight;
+					
+					Edge tempEdge = Edge(i, j, weight); //edge will hold (whereFrom, WhereTo, DistanceBetween) in that order
+					
+					nodes[i].SetEdge(i, tempEdge);//since the array and matrix are "parallel" keeping track of where from in both works
 				}
 			}
 		}
@@ -127,4 +125,5 @@ Graph Methods
 	{
 		return nodes[index];
 	}
+	
 #endif
