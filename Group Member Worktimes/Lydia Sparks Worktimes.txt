@@ -48,6 +48,9 @@ an Edge object array that is an attribute of the Node class so that each node ca
 11:10-12:15 PM
 Individual: Implemented Edge class and used Edge objects to set the weights of the edges connected to specific nodes, with weights
 loaded in from a txt file.
+**********************************************************************************************************************************
+12:30-1:45 PM
+With Group: Worked on adding to edge class and figuring out how to implement the binary heap class.
 
 4/12/24
 ---------
