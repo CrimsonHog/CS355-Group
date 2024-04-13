@@ -187,4 +187,35 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	{
 		return precedingNode;
 	}
+
+	/* 
+	operator=() - overloads the assignment operator to perform a deep copy on the GraphNode
+		objects
+	Incoming Data -	const GraphNode& copyNode: reference to the GraphNode to be copied
+	Outgoing data - N/A
+	Authors - Lydia Sparks
+	Tester(s) - 
+	*/ 
+	void GraphNode::operator=(const GraphNode& copyNode)
+	{
+		index = copyNode.index;
+		name = copyNode.name;
+		weight = copyNode.weight;
+		edges = copyNode.edges;
+		delete precedingNode;
+		precedingNode = copyNode.precedingNode;
+	}
+	
+	/* 
+	~GraphNode() - deallocates any dynamically allocated memory
+	Incoming Data -	N/A
+	Outgoing data - N/A
+	Authors - Lydia Sparks
+	Tester(s) - 
+	*/ 
+	GraphNode::~GraphNode()
+	{
+		delete precedingNode;
+	}
+
 #endif
