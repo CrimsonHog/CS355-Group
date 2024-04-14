@@ -32,7 +32,8 @@ Members:
 - [X]  Design Document
 - [X]  Start setting up tasks for other people
 - []   Create front and back end
-   - [] Front End
+   - [] GUI Based Front End
+   - [X] Text Based Front End
    - [] Back End
 - []   ???
 
