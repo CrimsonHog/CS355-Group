@@ -19,7 +19,7 @@ Members:
              | 4/9  |  Physical          |  12:30 pm - 1:30 pm
              | 4/10 |  Physical          |  5:30 pm - 7:00 pm
              | 4/11 |  Physical          |  12:30 pm - 1:30 pm
-     (Next)  | 4/14 |  Physical          |  5:30 pm - 7:00 pm
+     (Next)  | 4/14 |  Physical          |  4:30 pm - 5:30 pm
              | 4/15 |  Physical          |  5:30 pm - 7:00 pm
 
 ---
