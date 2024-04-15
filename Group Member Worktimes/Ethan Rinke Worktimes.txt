@@ -38,5 +38,6 @@ Fixed up issues with percolate up and down, getting them ready for the graph cla
 Solo: Worked on slides for the presentation
 
 4/15/24
+---------
 5:30 - 6:30 (Group - Virtual)
 Worked as group to solve memory leaks
