@@ -17,7 +17,26 @@ Solo: Found information and shared in saved groupchat to help others.
 
 4/9/24
 ---------
-12:30 - 1:45
+12:30 - 1:45 (In person - Group)
 Solo: Created Percolate up and down functions (Need testing later)
       Also created insert and remove (look over later to do any fixing)
 With Group: Discussed Design Document with professor
+
+4/10/24
+---------
+5:30 - 6:45 (In person - Group)
+Fixed up issues with percolate up and down, getting them ready for the graph class
+
+4/11/24 
+---------
+12:30 - 1:45 (In person - group)
+- Continued to work, started talking about how to get binary heap and graph classes to work together
+
+4/14/24
+---------
+4:00 - 5:00 pm 
+Solo: Worked on slides for the presentation
+
+4/15/24
+5:30 - 6:30 (Group - Virtual)
+Worked as group to solve memory leaks
