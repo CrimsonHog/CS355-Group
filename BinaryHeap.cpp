@@ -55,8 +55,12 @@ BinaryHeap::BinaryHeap(Graph theGraph)
 void BinaryHeap::PercolateUp(int index)
 {
 	//cout << "Before PercolateUp while loop" << endl;
-	cout << "New Node's Weight: " << heap[index].GetWeight() << endl;
-	cout << "Parent Node's Weight: " << heap[(index - 1) / 2].GetWeight() << endl << endl;
+	cout << "Next Node: " << heap[index].GetName() << endl;
+	cout << "Next Node's Weight: " << heap[index].GetWeight() << endl;
+	cout << "Parent Node: " << heap[(index - 1) / 2].GetName() << endl;
+	cout << "Parent Node's Weight: " << heap[(index - 1) / 2].GetWeight() << endl;
+	cout << "Origin: " << heap[0].GetName() << endl;
+	cout << "Origin Weight: " << heap[0].GetWeight() << endl << endl;
 
 	while(index > 0)
 	{
@@ -64,16 +68,16 @@ void BinaryHeap::PercolateUp(int index)
 
 		if (heap[index].GetWeight() <= heap[(index - 1) / 2].GetWeight())
 		{
-			return;
-		}
-		else
-		{
 			//swap the newNode and parent
 			GraphNode temp = heap[index];
 			heap[index] = heap[(index - 1) / 2];
 			heap[(index - 1) / 2] = temp;
 			//update the index
 			index = (index - 1) / 2;
+		}
+		else
+		{
+			return;
 		}
 	}
 	cout << "After PercolateUp while loop" << endl;
@@ -89,35 +93,33 @@ void BinaryHeap::PercolateUp(int index)
 */
 void BinaryHeap::PercolateDown(int index)
 {
-	int childIndex = 2 * index + 1;
-	GraphNode value = heap[index];
+	int leftChildIndex = 2 * index + 1;
 
-	while(childIndex < heap.size())
+	while(leftChildIndex < heap.size())
 	{
-		GraphNode minValue = value;
-		int minIndex = -1;
-		for(int i = 0; i < 2 && i + childIndex < heap.size(); i++)
+		int rightChildIndex = 2 * index + 2;
+		int minimumIndex = leftChildIndex; // assume minimum child is left child before finding
+
+		if (rightChildIndex < heap.size()) // be sure right child doesn't go beyond bounds of heap
 		{
-			if(heap[i + childIndex].GetWeight() < minValue.GetWeight())
+			if (heap[rightChildIndex].GetWeight() < heap[minimumIndex].GetWeight()) // checks if right child is less than current min
 			{
-				minValue = heap[i + childIndex];
-				minIndex = i + childIndex;
+				minimumIndex = rightChildIndex;
 			}
 		}
 
-		if (minValue.GetWeight() == value.GetWeight())
+		if (heap[index].GetWeight() <= heap[minimumIndex].GetWeight())
 		{
-			return;
+			return; // minimum heap is good
 		}
 		else
 		{
 			GraphNode temp = heap[index];
-			heap[index] = heap[minIndex];
-			heap[minIndex] = temp;
-			index = minIndex;
+			heap[index] = heap[minimumIndex];
+			heap[minimumIndex] = temp;
+			index = minimumIndex;
+			leftChildIndex = 2 * index + 1;
 		}
-
-		childIndex = 2 * index + 1;
 	}
 }
 
