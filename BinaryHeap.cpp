@@ -1,128 +1,213 @@
+#ifndef _BINARYHEAP_CPP
+#define _BINARYHEAP_CPP
+
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "BinaryHeap.h"
 using namespace std;
 
-Node::Node()
+/*
+	Function Name: BinaryHeap
+	Function Inputs: N/A
+	Function Outputs: N/A
+	Function Description: Default Constructor for the BinaryHeap, not good to use since we need to initialize the heap with a node from the graph
+	Author: Kelson
+	Testers:
+*/
+BinaryHeap::BinaryHeap()
 {
-	for (int i = 0; i < CITY_COUNT; i++)
-	{
-		city[i] = "Default City"; 
-		weight[i] = INT_MAX;
-	}
+	cout << "Please dont use this constructor, pass in a Graph" << endl;
 }
 
-Node::Node(string c[], int w[]) 
+/*
+	Function Name: BinaryHeap
+	Function Inputs: Graph theGraph: This is the graph that holds all of our data
+	Function Outputs: N/A
+	Function Description: will intialize the implicit vector of the heap with the origin node of the graph
+	Author: Kelson
+	Testers:
+*/
+BinaryHeap::BinaryHeap(Graph theGraph)
 {
-	ifstream cityAndWeights;
-	cityAndWeights.open("");
-	
-	for (int i = 0; i < CITY_COUNT; i++) // have cities be half the txt file and corresponding weights be other half 
-	{
-		if (i <= (CITY_COUNT / 2))
-		{
-			cityAndWeights >> city[i];
-		}
-		else 
-		{
-			cityAndWeights >> weight[i];
-		}
-	}
-	
-	cityAndWeights.close();
-};
+	heap.push_back(theGraph.GetNode(0)); //set the index being passed in to whatever the origin node of the graph will be
+	heap.push_back(theGraph.GetNode(1));
+	heap.push_back(theGraph.GetNode(2));
+	heap.push_back(theGraph.GetNode(3));
+	heap.push_back(theGraph.GetNode(4));
+	heap.push_back(theGraph.GetNode(5));
+	heap.push_back(theGraph.GetNode(6));
+	heap.push_back(theGraph.GetNode(7));
+	heap.push_back(theGraph.GetNode(8));
+	heap.push_back(theGraph.GetNode(9));
+	heap.push_back(theGraph.GetNode(10));
+}
+
 
 /*
 	Function Name: PercolateUp
-	Function Inputs: Node factor[factorSize], int hole
+	Function Inputs: GraphNode newNode
 	Function Outputs: N/A
 	Function Description: 
-	Author: Ethan
+	Author: Ethan / Kelson
 	Testers:
 */
-void BinaryHeap::PercolateUp(Node factor[factorSize], int hole){
-	hole = factorSize - 1;
-	int parent = hole / 2;
-	Node temp = factor[hole];
-	
-	while (hole > 1 && temp.weight < factor[parent].weight){
-		factor[hole] = factor[parent];
-		hole = parent;
-		parent = hole / 2;
+void BinaryHeap::PercolateUp(int index)
+{
+	//cout << "Before PercolateUp while loop" << endl;
+	cout << "New Node's Weight: " << heap[index].GetWeight() << endl;
+	cout << "Parent Node's Weight: " << heap[(index - 1) / 2].GetWeight() << endl << endl;
+
+	while(index > 0)
+	{
+		//cout << "Inside PercolateUp while loop" << endl;
+
+		if (heap[index].GetWeight() <= heap[(index - 1) / 2].GetWeight())
+		{
+			return;
+		}
+		else
+		{
+			//swap the newNode and parent
+			GraphNode temp = heap[index];
+			heap[index] = heap[(index - 1) / 2];
+			heap[(index - 1) / 2] = temp;
+			//update the index
+			index = (index - 1) / 2;
+		}
 	}
-	factor[hole] = temp;
-};
+	cout << "After PercolateUp while loop" << endl;
+}
 
 /*
 	Function Name: PercolateDown
-	Function Inputs: Node factor[factorSize], int hole
+	Function Inputs: GraphNode newNode
 	Function Outputs: N/A
 	Function Description: 
-	Author: Ethan
+	Author: Ethan / Kelson / Gage
 	Testers:
 */
-void BinaryHeap::PercolateDown(Node factor[factorSize], int hole){
-	int child;
-	Node temp = factor[hole];
-	
-	while (hole * 2 <= factorSize){
-		child = hole * 2;
-		if (child != factorSize && factor[child + 1].weight < factor[child].weight){
-			child++;
+void BinaryHeap::PercolateDown(int index)
+{
+	int childIndex = 2 * index + 1;
+	GraphNode value = heap[index];
+
+	while(childIndex < heap.size())
+	{
+		GraphNode minValue = value;
+		int minIndex = -1;
+		for(int i = 0; i < 2 && i + childIndex < heap.size(); i++)
+		{
+			if(heap[i + childIndex].GetWeight() < minValue.GetWeight())
+			{
+				minValue = heap[i + childIndex];
+				minIndex = i + childIndex;
+			}
 		}
-		if (factor[child].weight < temp.weight){
-			factor[hole] = factor[child];
+
+		if (minValue.GetWeight() == value.GetWeight())
+		{
+			return;
 		}
-		else{
-			break;
+		else
+		{
+			GraphNode temp = heap[index];
+			heap[index] = heap[minIndex];
+			heap[minIndex] = temp;
+			index = minIndex;
 		}
-		hole = child;
+
+		childIndex = 2 * index + 1;
 	}
-	factor[hole] = temp;
-};
+}
 
 /*
 	Function Name: Insert
-	Function Inputs: string c, int w, Node factor[]
+	Function Inputs: 
 	Function Outputs: N/A
 	Function Description: Insert into node array and percolate up to make sure any new node is in the correct position
-	Author: Ethan
+	Author: Ethan / Kelson
 	Testers:
 */
-void Insert(string c, int w, Node factor[]){
-	Node temp;
-	temp.city = c;
-	temp.weight = w;
-	
-	PercolateUp(factor, factorSize);
-};
+void BinaryHeap::Insert(GraphNode newNode)
+{
+	heap.push_back(newNode);
+	PercolateUp(heap.size() - 1);
+}
 
 /*
 	Funtion Name: Remove
-	Function Inputs: Node factor[], int val
+	Function Inputs: GraphNode factor[], int val
 	Function Outputs: N/A
 	Function Description: Remove the root node from the array and percolate down to make sure the array is in the correct order
-	Author: Ethan
+	Author: Ethan / Kelson
 	Testers: 
 */
-void Remove(Node factor[], int val){
-	Node temp = factor[1];
-	factor[1] = factor[factorSize];
-	factor[factorSize] = temp;
-	
-	PercolateDown(factor, factorSize);
-};
+GraphNode BinaryHeap::Remove()
+{
+	GraphNode minValue = heap[0];
+	GraphNode newValue = heap[heap.size() - 1];
+	heap.pop_back();
 
-/*
-  Funtion Name: PrintBinaryHeap
-  Function Inputs: Node factor
-  Function Outputs: cout City and corresponding Weight
-  Function Description: used for testing that the binary heap was created successfully. prints city alongside corresponding weight. 
-  Author: Gage Mathis
-  Testers: 
-*/
-void BinaryHeap::PrintBinaryHeap(Node factor)const {
-  for (int i = 0; i < CITY_COUNT; i++) {
-    cout << "City: " << factor.city[i] << "has Weight: " << factor.weight[i] << endl ;
-  }
+	if (heap.size() > 0)
+	{
+		heap[0] = newValue;
+		PercolateDown(0);
+	}
+
+	return minValue;
 }
+
+int BinaryHeap::GetSize()
+{
+	return heap.size();
+}
+
+GraphNode BinaryHeap::GetNode(int index)
+{
+	return heap[index];
+}
+
+bool BinaryHeap::Empty()
+{
+	bool empty = false;
+
+	if (heap.size() == 0)
+	{
+		empty = true;
+	}
+
+	return empty;
+}
+
+void BinaryHeap::Heapify()
+{
+	int i = heap.size() / 2 - 1; // calculates parent node index
+
+	while (i >= 0)
+	{
+		PercolateDown(i);
+		i--;
+	}
+
+	i = heap.size() - 1;
+
+	while (i > 0)
+	{
+		// swap heap[0] and heap[i]
+		GraphNode temp = heap[0];
+		heap[0] = heap[i];
+		heap[i] = temp;
+
+		PercolateDown(0);
+		i--;
+	}
+
+	for (int i = 0; i < heap.size(); i++)
+	{
+		cout << "Name: " << heap[i].GetName() << endl;
+		cout << "Weight: " << heap[i].GetWeight() << endl;
+	}
+}
+
+#endif
