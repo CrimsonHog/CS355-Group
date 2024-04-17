@@ -1,5 +1,0 @@
-GraphNodes Class
------------------
-- Needs a weight attribute to represent distance from origin.
-- Needs an attribute to store connections with other nodes (its edges).
-- Name for the Node (maybe needs to be an int to correspond with adjacency matrix).
