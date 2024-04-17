@@ -5,7 +5,7 @@
 // Name: Gage Mathis, Kelson Moore, Ethan Rinke, Lydia Sparks
 // Course-Section: CS355-Section#02
 // Assignment: Project 4
-// Date due: 
+// Date due: 04/16/24
 // Description: This is the header file that uses the road trip graph (seen as 
 // an example in the design document) and determines connectivity with weights 
 // between graph nodes.
@@ -26,20 +26,17 @@ const int CITYCOUNT = 11;
 class Graph
 {
 private:
-	/*
-		* ATTRIBUTES
-	*/
-	GraphNode nodes[CITYCOUNT];
-	bool adjacencyMatrix[CITYCOUNT][CITYCOUNT];
+	//Attributes
+	GraphNode nodes[CITYCOUNT]; //an array that holds GraphNodes, this is the main storage structure of the program
+	bool adjacencyMatrix[CITYCOUNT][CITYCOUNT]; //The matrix that shows connections between nodes
 	
 public:
-	/*
-		* CONSTRUCTORS/METHODS
-	*/
+	//Constructors
 	Graph(); 
-	void SetEdgeWeights(string);
+	//setters
+	void SetEdgeWeights(string); //uses a file to pass in weights for edges
 	//getters
-	GraphNode GetNode(int);
+	GraphNode GetNode(int); //Returns the node at the index passed in
 };
 
 #endif
