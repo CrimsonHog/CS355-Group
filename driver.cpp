@@ -71,8 +71,8 @@ int main(){
 	Function Inputs: The Graph
 	Function Outputs: N/a
 	Function Description: Dijkstra's algorithm
-	Author: Kelson Moore
-	Testers: Kelson Moore, Lydia Sparks, Gage Mathis, Ehtan Rinke. 
+	Author: Kelson Moore & Lydia Sparks
+	Testers: Kelson Moore, Lydia Sparks, Gage Mathis, Ethan Rinke. 
 */
 void FindShortestPath(Graph theGraph)
 {
