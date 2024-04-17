@@ -1,0 +1,59 @@
+Gage Mathis Worktimes
+
+4/3/24
+---------
+5:40-6:10 PM
+With Group: Reviewed and added to Kelson's work on the Design Document. Thanks for cooking like all of that up Kelson. 
+
+4/8/24
+---------
+5:30-7:00 PM
+With Group: Started working on ViewMin and PrintBinaryHeap using now outdated ideologies as we eliminated factor[]
+
+4/9/24
+---------
+12:30-1:30 PM
+With Group: Reviewed design doc with Dr. Jenkins, brainstormed with Kelson about how on earth to print this properly.
+
+4:00-5:00 PM
+Individual: Finished 1st go at PrintBinaryHeap
+
+4/10/24
+--------- 
+2:00 - 5:00 PM
+Individual: Read up on Kelson's new thoughts about the adjacency matrix + graph nodes, finished what 
+I think ViewMin should do although I am slightly still confused. Fixed PrintBinaryHeap to work with 
+new GraphNode representation. 
+Continued general research + learning!
+
+5:30 - 6:45 PM
+With Group: Helped sort out the percolate methods using zybooks examples + class notes, I forget which one my name is on tho. 
+	    
+4/11/24
+--------
+12:30 - 1:45 PM
+With Group: Hammered out plans for updates to nodes and edges during classtime. 
+
+4/12/24
+--------
+4:30 - 5:15 PM
+Individual: Preliminary work on presentation. Basically just threw design doc into slides and outlined some future needs. 
+
+4/14/24
+--------
+4:30 - 5:30 PM
+With Group: Helped to sort out error codes, did some individual testing on the Binary Heap. Wrote a new new new PrintBinaryHeap. 
+
+4/15/24
+10:00 - 10:45 AM
+Individual: Cleaned up presentation. Changed long text blocks to bulleted lists that are more idea based than entire sentences. 
+ 	    Added cool transition slide to segue us into talking about github. 
+	    Gave project a cool original name
+
+4/16/24
+2:30-3:30 PM
+Individual: Made presentation colorful. Back to the future. 
+
+5:30 - 10:00 PM
+With Group: Somehow basically got it all done except for printing but we gave up on that.
+	    
