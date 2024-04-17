@@ -7,7 +7,7 @@
 // Assignment: Project 4
 // Date due: 
 // Description: This is the cpp file that implements the constructors and 
-// methods for the nodes of the graph that is used with the shortest path 
+// methods for the nodes of the graph that are used with the shortest path 
 // algorithm, using the binary heap as a priority queue.
 // ---------------------------------------------------------------------------
 
@@ -17,14 +17,14 @@ using namespace std;
 
 /*
 GraphNode Constructors
-Purpose: Used when creating a node for the graph, have made all version of the constructor, some may not be used (Take out later)
+Purpose: Used when creating a node for the graph, have made all version of the constructor, some may not be used
 */
 	/* 
 	GraphNode() - default constructor of the GraphNode type. Creates a GraphNode that will have default values
 	Incoming Data - N/A
 	Outgoing data - N/A
 	Authors - Kelson Moore, Gage Mathis, & Lydia Sparks
-	Tester(s) - 
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks
 	*/ 
 	GraphNode::GraphNode()
 	{	
@@ -44,12 +44,12 @@ Purpose: Used when creating a node for the graph, have made all version of the c
 	Incoming Data - int inIndex, string inName: node is constructed with specified index and city name
 	Outgoing data - N/A
 	Authors - Lydia Sparks & Kelson Moore
-	Tester(s) - 
+	Tester(s) - Lydia Sparks & Kelson Moore
 	*/ 
 	GraphNode::GraphNode(int inIndex, string inName)
 	{
 //		cout << "Parametered GraphNode" << endl;
-		index = inIndex;
+		index = inIndex; 
 		name = inName;
 		weight = INT_MAX;
 		
@@ -69,11 +69,11 @@ GraphNode Setters
 Purpose: Changes the attributes stored in the GraphNode class
 */
 	/* 
-	ChangeWeight(int inWeight) - sets the weight attribute for the unweighted graph
-	Incoming Data - int inWeight: the weight of the predicating node in the graph
+	ChangeWeight(int inWeight) - sets the weight attribute for the graph
+	Incoming Data - int inWeight: the weight of the node in the graph
 	Outgoing data - N/A
 	Authors - Kelson Moore & Gage Mathis
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
 	*/ 
 	void GraphNode::ChangeWeight(int inWeight)
 	{
@@ -86,7 +86,7 @@ Purpose: Changes the attributes stored in the GraphNode class
 		be copied over to the node's array of edges
 	Outgoing data - N/A
 	Authors - Lydia Sparks & Kelson Moore
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, Gage Mathis, & Ethan Rinke
 	*/ 
 	void GraphNode::SetEdge(int edgeIndex, Edge inEdge)
 	{
@@ -107,7 +107,7 @@ Purpose: Changes the attributes stored in the GraphNode class
 	Incoming Data - GraphNode preceder: a graphNode being passed in to be stored as the node that comes before this one
 	Outgoing data - N/A
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, Gage Mathis, & Ethan Rinke
 	*/ 
 	void GraphNode::SetPrecedingNodeIndex(int precedingIndex)
 	{
@@ -128,7 +128,7 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	Incoming Data - N/A
 	Outgoing data - int weight: the weight attribute
 	Authors - Kelson Moore & Gage Mathis
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
 	*/ 
 	int GraphNode::GetWeight()
 	{
@@ -140,7 +140,7 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	Incoming Data - N/A
 	Outgoing data - int index: the index attribute
 	Authors - Lydia Sparks
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
 	*/ 
 	int GraphNode::GetIndex()
 	{
@@ -152,7 +152,7 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	Incoming Data - N/A
 	Outgoing data - string name: the name attribute
 	Authors - Kelson Moore & Gage Mathis
-	Tester(s) - 
+	Tester(s) -  Lydia Sparks, Kelson Moore, Ethan Rinke, & Gage Mathis
 	*/ 
 	string GraphNode::GetName()
 	{
@@ -160,11 +160,11 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	}
 	
 	/* 
-	int GetEdgeAmount() - returns the amount of edges the Node has (size of the vector of edges)
+	int GetEdgeAmount() - returns the amount of edges the Node has
 	Incoming Data - N/A
-	Outgoing data - int that corresponds with the size of the vector
+	Outgoing data - int that corresponds with the size of the array
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) -  Lydia Sparks, Kelson Moore, & Gage Mathis
 	*/ 
 	int GraphNode::GetEdgeAmount()
 	{
@@ -176,7 +176,7 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	Incoming Data -	int edgeIndex: passing the index of the edge you are wanting to check
 	Outgoing data - int: will return the index of the next GraphNode
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
 	*/ 
 	int GraphNode::CheckNextNode(int edgeIndex)
 	{
@@ -189,15 +189,21 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	Incoming Data -	int edgeIndex: passing the index of the edge you are wanting to check
 	Outgoing data - int: will return the weight of the edge at the index specified
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
 	*/ 
 	int GraphNode::GetEdgeWeight(int edgeIndex)
 	{
 		Edge connection = edges[edgeIndex]; //setting an edge object to the edge stored in that index of the vector
 		return connection.GetEdgeWeight(); //returning the weight of the edge
 	}
-	
-	
+
+	/* 
+	int GetPrecedingNodeIndex()
+	Incoming Data -	N/A
+	Outgoing data - int: returns the index of the preceding node
+	Authors - Kelson Moore
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
+	*/ 
 	int GraphNode::GetPrecedingNodeIndex()
 	{
 		return precedingNodeIndex;
@@ -209,7 +215,7 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 	Incoming Data -	const GraphNode& copyNode: reference to the GraphNode to be copied
 	Outgoing data - N/A
 	Authors - Lydia Sparks
-	Tester(s) - 
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
 	*/ 
 	void GraphNode::operator=(const GraphNode& copyNode)
 	{
@@ -223,7 +229,14 @@ Purpose: Retrieves the attributes stored in the GraphNode class
 		}
 		precedingNodeIndex = copyNode.precedingNodeIndex;
 	}
-	
+
+	/* 
+	PrintEdge() - uses as a tester function to make sure the edges got initialized correctly
+	Incoming Data -	int INdex: the index of the Edge object to be printed
+	Outgoing data - N/A
+	Authors - Lydia Sparks & Kelson Moore
+	Tester(s) - Lydia Sparks, Kelson Moore, & Gage Mathis
+	*/ 
 	void GraphNode::PrintEdge(int INdex)
 	{
 		cout << "Prev Connect: " << edges[INdex].GetPrevConnectionIndex() << endl;
