@@ -49,14 +49,14 @@ class GraphNode
 		void SetEdgeCount();
 		
 		//getters
-		int GetIndex();
-		string GetName();
-		int GetWeight();
-		int GetEdgeAmount();
+		int GetIndex(); // gets the index of the current node
+		string GetName(); // gets the city name of the current node
+		int GetWeight(); // gets the weight of the current node
+		int GetEdgeAmount(); // gets the number of edges in the current node
 		int CheckNextNode(int); //pass in the index of the next edge in the vector
 		int GetEdgeWeight(int); //getting the weight of the edge at the index being passed in
 		int GetPrecedingNodeIndex(); //passes back the index storing the preceding node
-		void PrintEdge(int); //convienience method that will call all of the getters relating to the edge
+		void PrintEdge(int); // convenience method that will call all of the getters relating to the edge
 		
 		// overloaded operators
 		void operator=(const GraphNode&); // allows for a deep copy of data to be performed
