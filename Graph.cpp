@@ -92,7 +92,6 @@ Purpose: Used when creating a graph of nodes.
 		adjacencyMatrix[9][10] = 1; // Jasper connected to Gulf Shores
 		
 		// used for testing to make sure adjacency matrix was created successfully
-		// DELETE LATER
 /*		for (int i = 0; i < CITYCOUNT; i++)
 		{
 			for (int j = 0; j < CITYCOUNT; j++)
@@ -104,9 +103,8 @@ Purpose: Used when creating a graph of nodes.
 		}
 */	}
 	
-/*
-Graph Methods
-*/
+//Setters
+
 	/* 
 	void SetEdgeWeights(bool adjMat[][CITY_COUNT]) - uses adjacency matrix to 
 		assign weights from a txt file to each edge 
@@ -171,13 +169,13 @@ Graph Methods
 */		
 		inFile.close();
 	}
-	
+//Getters
 	/* 
 	GraphNode GetNode() - returns a single index of the array holding the nodes in the graph
 	Incoming Data - int index: The index of the node that is going to be returned
 	Outgoing data - GraphNode nodes[index]
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Kelson Moore & Lydia Sparks
 	*/ 
 	GraphNode Graph::GetNode(int index)
 	{
