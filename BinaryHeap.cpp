@@ -34,7 +34,7 @@ BinaryHeap::BinaryHeap()
 	Function Outputs: N/A
 	Function Description: will intialize the implicit vector of the heap with the origin node of the graph
 	Author: Kelson Moore
-	Testers: Kelson Moore
+	Testers: Kelson Moore & Lydia Sparks
 */
 BinaryHeap::BinaryHeap(Graph theGraph)
 {
@@ -44,11 +44,12 @@ BinaryHeap::BinaryHeap(Graph theGraph)
 }
 
 /*
+	NOTE: Inspiration for the function was from Zybooks
 	Function Name: PercolateUp
 	Function Inputs: GraphNode newNode
 	Function Outputs: N/A
-	Function Description: 
-	Author: Ethan Rinke, Gage Mathis, & Kelson Moore
+	Function Description: Percolates nodes up in the binary heap to maintain min-heap property.
+	Author: Ethan Rinke, Gage Mathis, Lydia Sparks, & Kelson Moore
 	Testers: Kelson Moore
 */
 void BinaryHeap::PercolateUp(int index)
@@ -91,10 +92,11 @@ void BinaryHeap::PercolateUp(int index)
 }
 
 /*
+	NOTE: Inspiration for the function was from Zybooks
 	Function Name: PercolateDown
 	Function Inputs: GraphNode newNode
 	Function Outputs: N/A
-	Function Description: 
+	Function Description: Percolate down sends nodes down in the binary heap to maintain min-heap property.
 	Author: Lydia Sparks, Gage Mathis, & Ethan Rinke
 	Testers: Ethan Rinke, Lydia Sparks, Gage Mathis, Kelson Moore
 */
@@ -121,7 +123,7 @@ void BinaryHeap::PercolateDown(int index)
 			return; // minimum heap is good
 		}
 		else
-		{
+		{	// perform swap
 			GraphNode temp = heap[index];
 			heap[index] = heap[minimumIndex];
 			heap[minimumIndex] = temp;
@@ -137,7 +139,7 @@ void BinaryHeap::PercolateDown(int index)
 	Function Outputs: N/A
 	Function Description: Insert into node array and percolate up to make sure any new node is in the correct position
 	Author: Ethan Rinke, Gage Mathis, & Kelson Moore
-	Testers: Kelson Moore, Gage Mathis 
+	Testers: Kelson Moore, Gage Mathis, & Lydia Sparks
 */
 void BinaryHeap::Insert(GraphNode newNode)
 {
@@ -163,7 +165,7 @@ void BinaryHeap::Insert(GraphNode newNode)
 	Function Outputs: GraphNode MinValue
 	Function Description: Remove the root node from the array and percolate down to make sure the array is in the correct order
 	Author: Ethan Rinke, Gage Mathis, & Kelson Moore
-	Testers: Kelson Moore
+	Testers: Kelson Moore & Lydia Sparks
 */
 GraphNode BinaryHeap::Remove()
 {
@@ -184,6 +186,7 @@ GraphNode BinaryHeap::Remove()
 //	cout << "BinaryHeap.cpp::Remove(): Minvalue edgeCount: " << minValue.GetEdgeAmount() << endl;
 	return minValue;
 }
+
 /*
 	Function Name: GetSize
 	Function Inputs: N/A
@@ -196,6 +199,7 @@ int BinaryHeap::GetSize()
 {
 	return heap.size();
 }
+
 /*
 	Function Name: BinaryHeap
 	Function Inputs: N/A
