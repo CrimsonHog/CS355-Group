@@ -3,7 +3,8 @@
 // Course-Section: CS-355-02
 // Assignment: Project 04
 // Date due: 04/16/24
-// Description: CONDENSED VERSION OF OUR DESCRIPTION
+// Description: This file will create a graph made up of graph nodes, each having their own edges. It will then perform Dijkstra's algorithm 
+// on this graph to return a shortest path based on your desired factor.
 // ----------------------------------------------------------
 #include <iostream>
 #include <fstream>
