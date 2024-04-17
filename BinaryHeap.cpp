@@ -10,7 +10,7 @@ using namespace std;
 /*
 	Function Name: BinaryHeap
 	Function Inputs: N/A
-	Function Outputs: N/A
+	Function Outputs: Please don't use...
 	Function Description: Default Constructor for the BinaryHeap, not good to use since we need to initialize the heap with a node from the graph
 	Author: Kelson Moore
 	Testers: Kelson Moore
@@ -88,7 +88,7 @@ void BinaryHeap::PercolateUp(int index)
 	Function Outputs: N/A
 	Function Description: 
 	Author: Lydia Sparks, Gage Mathis, & Ethan Rinke
-	Testers:
+	Testers: Ethan Rinke, Lydia Sparks, Gage Mathis, Kelson Moore
 */
 
 void BinaryHeap::PercolateDown(int index)
@@ -129,7 +129,7 @@ void BinaryHeap::PercolateDown(int index)
 	Function Outputs: N/A
 	Function Description: Insert into node array and percolate up to make sure any new node is in the correct position
 	Author: Ethan Rinke, Gage Mathis, & Kelson Moore
-	Testers: Kelson Moore
+	Testers: Kelson Moore, Gage Mathis 
 */
 void BinaryHeap::Insert(GraphNode newNode)
 {
@@ -152,10 +152,10 @@ void BinaryHeap::Insert(GraphNode newNode)
 /*
 	Funtion Name: Remove
 	Function Inputs: GraphNode factor[], int val
-	Function Outputs: N/A
+	Function Outputs: GraphNode MinValue
 	Function Description: Remove the root node from the array and percolate down to make sure the array is in the correct order
 	Author: Ethan Rinke, Gage Mathis, & Kelson Moore
-	Testers: Kelson MOore
+	Testers: Kelson Moore
 */
 GraphNode BinaryHeap::Remove()
 {
@@ -176,12 +176,26 @@ GraphNode BinaryHeap::Remove()
 //	cout << "BinaryHeap.cpp::Remove(): Minvalue edgeCount: " << minValue.GetEdgeAmount() << endl;
 	return minValue;
 }
-
+/*
+	Function Name: GetSize
+	Function Inputs: N/A
+	Function Outputs: int size of heap
+	Function Description: get the size of the heap
+	Author: Kelson Moore
+	Testers: Kelson Moore
+*/
 int BinaryHeap::GetSize()
 {
 	return heap.size();
 }
-
+/*
+	Function Name: BinaryHeap
+	Function Inputs: N/A
+	Function Outputs: index of node
+	Function Description: Get the index of desired node
+	Author: Kelson Moore
+	Testers: Kelson Moore
+*/
 GraphNode BinaryHeap::GetNode(int index)
 {
 	return heap[index];
