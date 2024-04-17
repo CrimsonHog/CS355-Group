@@ -66,7 +66,14 @@ int main(){
 	}
     return 0;
 }
-
+/*
+	Function Name: FindShortestPath
+	Function Inputs: The Graph
+	Function Outputs: N/a
+	Function Description: Dijkstra's algorithm
+	Author: Kelson Moore
+	Testers: Kelson Moore, Lydia Sparks, Gage Mathis, Ehtan Rinke. 
+*/
 void FindShortestPath(Graph theGraph)
 {
 	BinaryHeap theHeap(theGraph);//passing in the graph so that the heap can initialize itself with the origin point of the graph.
@@ -159,10 +166,10 @@ void FindShortestPath(Graph theGraph)
 /*
 	Funtion Name: PrintMenu
 	Function Inputs: N/A
-	Function Outputs: int choice: Corresponds to whatever the user decided to minimize
+	Function Outputs: int choice: Corresponds to whatever the user decided to minimize + the menu itself
 	Function Description: Will output a list of choices to the user, the user will select one
 	Author: Kelson Moore
-	Testers: 
+	Testers: Gage Mathis, Ethan Rinke, Lydia Sparks, Kelson Moore
 */
 void PrintMenu(int& choice)
 {
