@@ -26,7 +26,7 @@ Purpose: Used when creating a graph of nodes.
 	Incoming Data - N/A
 	Outgoing data - N/A
 	Authors - Lydia Sparks & Kelson Moore
-	Tester(s) - Kelson Moore
+	Tester(s) - Kelson Moore, Gage Mathis, Lydia Sparks, Ethan Rinke
 	*/ 
 	Graph::Graph()
 	{
@@ -111,7 +111,7 @@ Purpose: Used when creating a graph of nodes.
 	Incoming Data - bool adjMat[][CITY_COUNT]: uses connections in graph to assign an edge weight
 	Outgoing data - N/A
 	Authors - Lydia Sparks & Kelson Moore
-	Tester(s) - Kelson Moore
+	Tester(s) - Kelson Moore, Lydia Sparks
 	*/ 
 	void Graph::SetEdgeWeights(string fileName)
 	{	
@@ -174,7 +174,7 @@ Purpose: Used when creating a graph of nodes.
 	GraphNode GetNode() - returns a single index of the array holding the nodes in the graph
 	Incoming Data - int index: The index of the node that is going to be returned
 	Outgoing data - GraphNode nodes[index]
-	Authors - Kelson Moore
+	Authors - Kelson Moore, Gage Mathis
 	Tester(s) - Kelson Moore & Lydia Sparks
 	*/ 
 	GraphNode Graph::GetNode(int index)
