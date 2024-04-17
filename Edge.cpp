@@ -5,7 +5,7 @@
 // Name: Gage Mathis, Kelson Moore, Ethan Rinke, Lydia Sparks
 // Course-Section: CS355-Section#02
 // Assignment: Project 4
-// Date due: 
+// Date due: 04/16/24
 // Description: This is the cpp file for the edges of the graph that implements
 // the Edge constructors, which will be implemented as an attribute of a GraphNode 
 // object. This way, each node will have an edge attribute that shows what the node's 
@@ -26,7 +26,7 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - N/A
 	Outgoing data - N/A
 	Authors - Lydia Sparks
-	Tester(s) - 
+	Tester(s) - Kelson Moore, Gage Mathis & Lydia Sparks
 	*/ 
 	Edge::Edge()
 	{
@@ -43,7 +43,7 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - int i, int w: edge is constructed with specified pointing to node index and weight
 	Outgoing data - N/A
 	Authors - Lydia Sparks
-	Tester(s) - Kelson Moore
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks
 	*/ 
 	Edge::Edge(int prev, int next, int w)
 	{
@@ -65,7 +65,7 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - int INdex: The incoming index value (will be assigned from graph.cpp)
 	Outgoing data - N/A
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks
 	*/ 
 	void Edge::SetPrevConnectionIndex(int INdex)
 	{
@@ -79,7 +79,7 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - int INdex: The incoming index value (will be assigned from graph.cpp)
 	Outgoing data - N/A
 	Authors - Kelson Moore
-	Tester(s) - Kelson Moore
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks
 	*/ 
 	void Edge::SetNodeConnectionIndex(int INdex)
 	{
@@ -93,7 +93,7 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - int inWeight: The incoming weight value (will be assigned from graph.cpp)
 	Outgoing data - N/A
 	Authors - Kelson Moore
-	Tester(s) - Kelson Moore
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks
 	*/ 
 	void Edge::SetEdgeWeight(int inWeight)
 	{
@@ -108,7 +108,7 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - N/A
 	Outgoing data - int nodePreviousIndex: the previous node attribute of the edge class
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks 
 	*/ 
 	int Edge::GetPrevConnectionIndex()
 	{
@@ -120,7 +120,7 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - N/A
 	Outgoing data - int nodeConnectionIndex: the next connecting node attribute of the edge class
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks 
 	*/ 
 	int Edge::GetNodeConnectionIndex()
 	{
@@ -132,13 +132,20 @@ Purpose: Used when creating an edge to connect nodes.
 	Incoming Data - N/A
 	Outgoing data - int weight: the weight attribute
 	Authors - Kelson Moore
-	Tester(s) - 
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks 
 	*/ 
 	int Edge::GetEdgeWeight()
 	{
 		return weight;
 	}
-	
+
+	/* 
+	void operator=() - overloaded assignment operator
+	Incoming Data - const Edge& copyEdge: the edge that is being set equal to
+	Outgoing data - N/A
+	Authors - Lydia Sparks
+	Tester(s) - Kelson Moore, Gage Mathis, & Lydia Sparks 
+	*/ 
 	void Edge::operator=(const Edge& copyEdge)
 	{
 		nodePreviousIndex = copyEdge.nodePreviousIndex;
